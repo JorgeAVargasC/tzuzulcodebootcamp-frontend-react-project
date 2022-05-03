@@ -40,3 +40,104 @@ html {
 	font-size: 62.5%; /* Now 10px = 1rem! */
 	scroll-behavior: smooth;
 }
+
+body {
+	font-family: var(--primary-font);
+	background-color: var(--dark-1);
+	color: var(--light-1);
+}
+
+.App {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+p {
+	font-weight: 500;
+	text-align: center;
+}
+
+h1 {
+	font-size: 5rem;
+}
+
+h2 {
+	font-size: 4rem;
+}
+
+h3 {
+	font-size: 3rem;
+}
+
+h4 {
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+}
+
+a {
+	font-size: 1.8rem;
+	font-weight: 400;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 0.2rem;	
+	color: var(--light-1);
+}
+
+p {
+	font-size: 1.8rem;
+	font-weight: 400;
+}
+
+li {
+	list-style: none;
+}
+
+.txt-blue {
+	color: var(--blue-1);
+}
+
+.txt-green {
+	color: var(--green-1);
+}
+
+.container {
+	width: 85%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+@media (min-width: 1269px) {
+	h1 {
+		font-size: 8rem;
+	}
+
+	h2 {
+		font-size: 6rem;
+	}
+
+	h3 {
+		font-size: 4.2rem;
+	}
+
+	h4 {
+		font-size: 3rem;
+	}
+
+	a {
+		font-size: 2rem;
+	}
+
+	p {
+		font-size: 2rem;
+	}
+}
