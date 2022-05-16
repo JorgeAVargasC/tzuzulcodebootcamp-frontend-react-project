@@ -1,10 +1,9 @@
-import React from "react";
-import Login from "../components/Login";
+import React from 'react';
+import Login from '../components/Login';
 
 export default function Home() {
 	return (
-		<div className="container">
-            <h1>Home</h1>
+		<div className=''>
             <Login/>
 		</div>
 	);
