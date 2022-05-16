@@ -1,9 +1,14 @@
 import React from "react";
 
-export default function Login() {
+export default function SignUp() {
 	return (
 		<div className="card">
-			<h4 className="subtitle">Login</h4>
+			<h4 className="subtitle">Sign Up</h4>
+
+            <div className="form-group">
+				<label className="lbl">Name</label>
+				<input className="inp" placeholder="Jhon Doe" type="text" />
+			</div>
 
 			<div className="form-group">
 				<label className="lbl">Email address</label>
@@ -17,12 +22,12 @@ export default function Login() {
 
 			<div className="form-group">
 				<button className="btn" type="submit">
-					<span>Login</span>
+					<span>Sign Up</span>
 				</button>
 			</div>
 
 			<p>
-				Don't have an account yet? <span className="txt-blue">Sign up here!</span>
+                Already have an account? <span className="txt-blue">Login here!</span>
 			</p>
 		</div>
 	);

@@ -149,6 +149,7 @@ li {
 .lbl {
 	width: 100%;
     font-weight: 200;
+    margin-bottom: 0.5rem;
 }
 
 .inp {
@@ -177,6 +178,7 @@ li {
 
 .btn {
 	position: relative;
+    width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -185,6 +187,10 @@ li {
 	box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
 	overflow: hidden;
 	border: none;
+}
+
+.btn:hover{
+    cursor: pointer;
 }
 
 .btn:after {
@@ -233,11 +239,38 @@ li {
 	}
 }
 
-/* Login */
+/* Home */
 
-.login {
+.login-signup-navigation{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.login-signup-navigation .btn{
+    box-shadow: none;
+    background-color: var(--dark-3);
+}
+
+.login-signup-navigation .active{
+    background-color: var(--blue-1);
+}
+
+.login-signup-navigation .btn:first-of-type{
+    border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.login-signup-navigation .btn:last-of-type{
+    border-radius: 0 0.3rem 0.3rem 0;
+}
+
+/* Card */
+
+.card {
 	background-color: var(--dark-2);
-    border-radius: 1rem;
+    border-radius: 0.3rem;
     box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
 	padding: 2.5rem 2rem;
 	display: flex;
@@ -246,7 +279,35 @@ li {
 	width: 100%;
 }
 
+/* Gradient Scroll Bar */
+
+::-webkit-scrollbar {
+	width: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--dark-1);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--gradient-1);
+	border-radius: 1rem;
+}
+
 @media (min-width: 1269px) {
+
+    .container{
+        padding: 4rem 0rem;
+    }
+
+    .card{
+        width: 50%;
+    }
+
+    .login-signup-navigation{
+        width: 50%;
+    }
+
 	h1 {
 		font-size: 8rem;
 	}
@@ -256,7 +317,7 @@ li {
 	}
 
 	h3 {
-		font-size: 4.2rem;
+		font-size: 4rem;
 	}
 
 	h4 {
