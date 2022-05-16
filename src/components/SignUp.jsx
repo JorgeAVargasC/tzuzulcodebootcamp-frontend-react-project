@@ -5,7 +5,7 @@ export default function SignUp() {
 		<div className="card">
 			<h4 className="subtitle">Sign Up</h4>
 
-            <div className="form-group">
+			<div className="form-group">
 				<label className="lbl">Name</label>
 				<input className="inp" placeholder="Jhon Doe" type="text" />
 			</div>
@@ -26,9 +26,10 @@ export default function SignUp() {
 				</button>
 			</div>
 
-			<p>
-                Already have an account? <span className="txt-blue">Login here!</span>
-			</p>
+			<div className="txt-section">
+				<p>Already have an account?</p>
+				<p className="txt-blue">Login here!</p>
+			</div>
 		</div>
 	);
 }

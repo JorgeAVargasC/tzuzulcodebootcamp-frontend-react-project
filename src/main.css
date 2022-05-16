@@ -306,6 +306,15 @@ li {
         width: 50%;
     }
 
+    .txt-section{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .txt-section p:first-of-type{
+        margin-right: 0.8rem;
+    }
+
 	h1 {
 		font-size: 8rem;
 	}

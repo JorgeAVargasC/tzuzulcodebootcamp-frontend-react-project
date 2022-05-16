@@ -21,9 +21,10 @@ export default function Login() {
 				</button>
 			</div>
 
-			<p>
-				Don't have an account yet? <span className="txt-blue">Sign up here!</span>
-			</p>
+			<div className="txt-section">
+				<p>Don't have an account yet?</p>
+				<p className="txt-blue">Sign up here!</p>
+			</div>
 		</div>
 	);
 }
