@@ -1,36 +1,16 @@
-import Login from "../components/Login";
-import SignUp from "../components/SignUp";
-
-import {useState} from "react";
+import React from "react";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
-
-	const [section, setSection] = useState('login');
-
-	const handleLogin = () => {
-		setSection('login');
-	};
-
-	const handleSignUp = () => {
-		setSection('signup');		
-	};
-
 	return (
-		<div className="container">
-			<h3 className="subtitle">
-				Welcome to Job <span className="txt-blue">Search!</span>
-			</h3>
-			<div className="login-signup-navigation">
-				<button onClick={handleLogin} className={section==='login' ? 'btn active' : 'btn'}>
-					<span>Login</span>
-				</button>
-				<button onClick={handleSignUp} className={section==='signup' ? 'btn active' : 'btn'}>
-					<span>Sign Up</span>
-				</button>
+		<>
+			<Navbar/>
+			<div className="container">
+				<h1>Home</h1>
+				<p className="tag">
+					Javascript
+				</p>
 			</div>
-
-			{section==='login' ? <Login /> : <SignUp />}
-
-		</div>
+		</>
 	);
 }
