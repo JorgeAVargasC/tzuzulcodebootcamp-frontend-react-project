@@ -7,9 +7,9 @@ export default function Home() {
 			<Navbar/>
 			<div className="container">
 				<h1>Home</h1>
-				<p className="tag">
+				{/* <p className="tag">
 					Javascript
-				</p>
+				</p> */}
 			</div>
 		</>
 	);
