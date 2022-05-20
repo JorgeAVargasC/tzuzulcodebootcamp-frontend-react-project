@@ -25,7 +25,8 @@ export default function Navbar() {
                 <nav className={isOpen ? 'navlinks-mobile open' : 'navlinks-mobile close'} onClick={() => setOpen(false)}>
                     
                     <div className="navlinks-container">
-                        <NavLinks/>                        
+                        <NavLinks/>
+                        {auth.logged && <p className='blue-tag'>{auth.name}</p>}                        
                         {auth.logged && <LogOut/>}
                     </div>
                 </nav>
@@ -41,6 +42,7 @@ export default function Navbar() {
                 {/* Desktop Navigation */}
                 <nav className='navlinks'>                    
                     <NavLinks/>
+                    {auth.logged && <p className='blue-tag'>{auth.name}</p>}
                     {auth.logged && <LogOut/>}
                 </nav>
                 

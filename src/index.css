@@ -131,6 +131,7 @@ label,
 input,
 select,
 option,
+span,
 button {
 	font-size: 1.8rem;
 	font-weight: 300;
@@ -143,10 +144,13 @@ li {
 /* UTILITIES */
 
 .blue-tag{
+	width: 100%;
+	margin-bottom: 1rem;
+	padding: 0.9rem 3rem;
+	min-width: fit-content;
 	color: var(--blue-1);
-	background-color: #3568d450;
-	padding: 1rem 2rem;
-	border-radius: 2rem;
+	background-color: #3567d420;
+	border-radius: 0.3rem;
 }
 
 .txt-section {
@@ -499,6 +503,9 @@ nav {
 
 	.navlinks {
 		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.navlinks .links {
@@ -508,5 +515,10 @@ nav {
 
 	.navlinks-mobile {
 		display: none;
+	}
+
+	.navlinks .blue-tag{
+		margin: 0;
+		margin-right: 3rem;
 	}
 }
