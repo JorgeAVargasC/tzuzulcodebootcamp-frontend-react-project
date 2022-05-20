@@ -502,11 +502,8 @@ nav {
 	}
 
 	.navlinks .links {
-		margin-left: 3rem;
-	}
-
-	.navlinks .links:first-of-type {
-		margin-left: 0;
+		margin-right: 3rem;
+		min-width: fit-content;
 	}
 
 	.navlinks-mobile {

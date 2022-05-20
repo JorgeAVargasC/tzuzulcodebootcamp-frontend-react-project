@@ -35,6 +35,7 @@ export default function Navbar() {
                 {/* Desktop Navigation */}
                 <nav className='navlinks'>
                     <NavLinks/>
+                    <LogOut/>
                 </nav>
                 
             </div>
