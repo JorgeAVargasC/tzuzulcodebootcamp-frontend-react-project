@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Spin as Hamburger } from 'hamburger-react'
 import NavLinks from './NavLinks';
+import LogOut from './LogOut';
 
 export default function Navbar() {
 
@@ -16,7 +17,11 @@ export default function Navbar() {
 
                 {/* Mobile Navigation */}
                 <nav className={isOpen ? 'navlinks-mobile open' : 'navlinks-mobile close'} onClick={() => setOpen(false)}>
-                    <NavLinks/>
+                    
+                    <div className="navlinks-container">
+                        <NavLinks/>
+                        <LogOut/>
+                    </div>
                 </nav>
 
                 <Hamburger

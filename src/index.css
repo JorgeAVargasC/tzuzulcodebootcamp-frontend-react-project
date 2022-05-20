@@ -305,6 +305,13 @@ nav {
 	align-items: center;
 }
 
+.navlinks-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 85%;
+}
+
 .navlinks-mobile {
 	width: 100%;
 	padding-top: 15vh;
@@ -326,7 +333,7 @@ nav {
 	background-color: var(--dark-2);
 	border-radius: 0.5rem;
 	text-align: center;
-	width: 85%;
+	width: 100%;
 	padding: 1.5rem;
 	margin-bottom: 1rem;
 }
@@ -341,9 +348,6 @@ nav {
 	animation: slide-right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-.navlinks-mobile .links:last-of-type {
-	margin-bottom: 0;
-}
 
 .navlinks {
 	display: none;
