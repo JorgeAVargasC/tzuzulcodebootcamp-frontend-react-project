@@ -6,7 +6,7 @@ export default function Home() {
 		<>
 			<Navbar/>
 			<div className="container">
-				<h1>Home</h1>
+				<h2>Find your dream jobs with <h1>J&L</h1></h2>
 				{/* <p className="tag">
 					Javascript
 				</p> */}
