@@ -164,8 +164,8 @@ li {
 
 .container {
 	width: 85%;
-    margin-top: 10vh;
-	min-height: 90vh;
+    margin-top: 15vh;
+	min-height: 80vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
