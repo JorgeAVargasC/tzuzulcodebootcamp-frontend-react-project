@@ -1,4 +1,5 @@
 import React, { useContext, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { post } from "../api";
 import { authContext } from "../context/AuthContext";
 import { NavLink } from "react-router-dom";
@@ -6,6 +7,8 @@ import Navbar from "../components/Navbar";
 
 export default function SignUp() {
 	const { setAuth } = useContext(authContext);
+
+	const navigate = useNavigate();
 
 	const nameRef = useRef();
 	const emailRef = useRef();
@@ -29,6 +32,7 @@ export default function SignUp() {
 				name: data.user.name,
 				logged: true,
 			});
+			navigate("/", {replace: true});
 		})
 		.catch((err) => console.log(err));
 	};
