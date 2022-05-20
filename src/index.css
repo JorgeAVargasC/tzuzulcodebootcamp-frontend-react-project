@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 *,
 *::after,
@@ -43,7 +44,8 @@
 /* GENERAL */
 
 html {
-	font-size: 62.5%; /* Now 10px = 1rem! */
+	font-size: 62.5%;
+	/* Now 10px = 1rem! */
 	scroll-behavior: smooth;
 }
 
@@ -142,7 +144,7 @@ li {
 
 /* UTILITIES */
 
-.blue-tag{
+.blue-tag {
 	color: var(--blue-1);
 	background-color: #3568d450;
 	padding: 1rem 2rem;
@@ -164,12 +166,23 @@ li {
 
 .container {
 	width: 85%;
-    margin-top: 15vh;
+	margin-top: 15vh;
 	min-height: 80vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+}
+
+.titulo {
+	width: 100%;
+	align-items: center;
+
+}
+
+.buscar {
+	width: 100%;
+	background-color: #05c270;
 }
 
 .App {
@@ -305,7 +318,7 @@ nav {
 	align-items: center;
 }
 
-.navlinks-container{
+.navlinks-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -358,6 +371,7 @@ nav {
 		-webkit-transform: translateX(100%);
 		transform: translateX(100%);
 	}
+
 	100% {
 		-webkit-transform: translateX(0%);
 		transform: translateX(0%);
@@ -369,6 +383,7 @@ nav {
 		-webkit-transform: translateX(0%);
 		transform: translateX(0%);
 	}
+
 	100% {
 		-webkit-transform: translateX(100%);
 		transform: translateX(100%);
@@ -417,6 +432,31 @@ nav {
 .login-signup-navigation .btn:last-of-type {
 	border-radius: 0 0.3rem 0.3rem 0;
 }
+
+/* Find job*/
+
+.trabajo {
+	width: 100%;
+	background-color: #05c270;
+	flex-direction: row;
+	border: none;
+}
+
+.trabajo input {
+	width: 75%;
+	height: 4rem;
+	text-decoration: none;
+	border: none;
+}
+
+.trabajo button {
+	width: 20%;
+	height: 4rem;
+	border: none;
+	background-color: #6500cd;
+}
+
+
 
 /* Card */
 
