@@ -142,11 +142,11 @@ li {
 
 /* UTILITIES */
 
-.tag{
-	color: var(--green-1);
-	background-color: #05c27050;
-	padding: 2rem 3rem;
-	border-radius: 5rem;
+.blue-tag{
+	color: var(--blue-1);
+	background-color: #3568d450;
+	padding: 1rem 2rem;
+	border-radius: 2rem;
 }
 
 .txt-section {
