@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Spin as Hamburger } from 'hamburger-react'
-import { NavLink } from "react-router-dom";
 import NavLinks from './NavLinks';
 
 export default function Navbar() {
