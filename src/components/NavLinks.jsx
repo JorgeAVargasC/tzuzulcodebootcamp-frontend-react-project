@@ -1,12 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import { NavLink } from "react-router-dom";
+import { authContext } from "../context/AuthContext";
+
 
 export default function NavLinks() {
+
+	const { auth } = useContext(authContext);
+
+
 	return (
 		<>
 			<NavLink to="/home" className="links">Home</NavLink>
-			<NavLink to="/login" className="links">Login</NavLink>
-			<NavLink to="/signup" className="links">Sign Up</NavLink>
+			{!auth.logged && <NavLink to="/login" className="links">Login</NavLink>}
+			{!auth.logged && <NavLink to="/signup" className="links">Sign Up</NavLink>}
 		</>
 	);
 }

@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
+import { useContext } from 'react';
+import { authContext } from '../context/AuthContext';
 import { Spin as Hamburger } from 'hamburger-react'
 import NavLinks from './NavLinks';
 import LogOut from './LogOut';
 
 export default function Navbar() {
 
-    const [isOpen, setOpen] = useState(false)
+    const [isOpen, setOpen] = useState(false);
+
+    const {auth} = useContext(authContext);
+
+
 
     return (
         <div className='navbar'>
@@ -19,8 +25,8 @@ export default function Navbar() {
                 <nav className={isOpen ? 'navlinks-mobile open' : 'navlinks-mobile close'} onClick={() => setOpen(false)}>
                     
                     <div className="navlinks-container">
-                        <NavLinks/>
-                        <LogOut/>
+                        <NavLinks/>                        
+                        {auth.logged && <LogOut/>}
                     </div>
                 </nav>
 
@@ -33,9 +39,9 @@ export default function Navbar() {
                 />
 
                 {/* Desktop Navigation */}
-                <nav className='navlinks'>
+                <nav className='navlinks'>                    
                     <NavLinks/>
-                    <LogOut/>
+                    {auth.logged && <LogOut/>}
                 </nav>
                 
             </div>
