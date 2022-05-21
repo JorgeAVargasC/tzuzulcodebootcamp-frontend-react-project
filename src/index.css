@@ -148,7 +148,7 @@ li {
 .blue-tag{
 	width: 100%;
 	margin-bottom: 1rem;
-	padding: 0.9rem 3rem;
+	padding: 0.7rem 3rem;
 	min-width: fit-content;
 	color: var(--blue-1);
 	background-color: #3567d420;
@@ -546,6 +546,11 @@ nav {
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.blue-tag{
+		margin: 0;
+		margin-right: 3rem;
 	}
 
 	.navlinks .links {
