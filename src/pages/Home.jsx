@@ -30,9 +30,8 @@ export default function Home() {
 
 				{jobs.map((job) => {
 					return (
-						<div className="job-container">
+						<div key={job._id} className="job-container">
 							<div className="job-title">
-								{console.log(job)}
 								<h3>{job.title}</h3>
 								<p>{job.salary}</p>
 							</div>
