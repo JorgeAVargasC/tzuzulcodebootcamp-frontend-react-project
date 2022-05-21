@@ -551,11 +551,16 @@ nav {
 	.blue-tag{
 		margin: 0;
 		margin-right: 3rem;
+		margin-left: 3rem;
 	}
 
 	.navlinks .links {
 		margin-right: 3rem;
 		min-width: fit-content;
+	}
+
+	.navlinks .links:last-of-type{
+		margin-right: 0rem;
 	}
 
 	.navlinks-mobile {
