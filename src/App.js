@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {postWithToken} from './api';
 import { authContext } from './context/AuthContext';
 import Home from './pages/Home';
+import Jobs from './pages/Jobs';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 
@@ -29,6 +30,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/home" element={<Home />} />
+					<Route path="/jobs" element={<Jobs/>} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/signup" element={<SignUp />} />
 				</Routes>
