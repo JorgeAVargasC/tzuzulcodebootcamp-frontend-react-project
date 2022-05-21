@@ -16,7 +16,7 @@ export default function Jobs() {
 			})
 			.catch((err) => {
 				console.log(err);
-			});		
+			});
 	};
 
 	useEffect(() => {
@@ -51,9 +51,7 @@ export default function Jobs() {
 			})
 				.then(({ data }) => {
 					console.log(data);
-					data.message?
-					alert(data.message) :
-					setJobs(data)			
+					data.message ? alert(data.message) : setJobs(data);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -75,18 +73,22 @@ export default function Jobs() {
 					</button>
 				</div>
 
-				{categories.map((category, key) => {
-					return (
-						<div className="form-group">
-							<input
-								type="checkbox"
-								value={category}
-								onClick={() => addCategory(category)}
-							/>
-							<label>{category}</label>
-						</div>
-					);
-				})}
+				<h4>Categories</h4>
+				<div className="categories-checkboxes">
+					
+					{categories.map((category, key) => {
+						return (
+							<div className="form-group">
+								<input
+									type="checkbox"
+									value={category}
+									onClick={() => addCategory(category)}
+								/>
+								<label>{category}</label>
+							</div>
+						);
+					})}
+				</div>
 
 				{jobs.map((job) => {
 					return (
