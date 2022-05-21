@@ -4,19 +4,20 @@ import Navbar from "../components/Navbar";
 
 export default function Home() {
 	const [jobs, setJobs] = useState([]);
+	const [categories, setCategories] = useState([]);
 
 	useEffect(() => {
 		const token = localStorage.getItem("token");
 		getWithToken("/api/jobs", { token })
 			.then(({ data }) => {
-				// console.clear();
-				// console.log(data);
 				setJobs(data);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	}, []);
+
+	console.log(jobs);
 
 	return (
 		<>
@@ -26,12 +27,23 @@ export default function Home() {
 					<input type="text" placeholder="Job, Company name..." />
 					<button type="button">Find!</button>
 				</div>
+				
+				{
+					<select className="inp">
+						<option value="">All Categories</option>
+						{
+							categories.map((category,key) => {
+								return <option key={key} value={category}>{category}</option>
+							})
+						}
+					</select>
+				}
 
 				{
 				jobs.map((job) => {
 					return (
-						console.clear(),
-						console.log(job),
+						// console.clear(),
+						// console.log(job),
 						<div key={job._id} className="job-container">
 							<div className="job-title">
 								<h3>{job.title}</h3>
