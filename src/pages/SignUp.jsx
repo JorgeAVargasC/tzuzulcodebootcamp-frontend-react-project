@@ -69,36 +69,36 @@ export default function SignUp() {
 					<label className="lbl">Email address</label>
 					<input
 						ref={emailRef}
-						className="inp"
+						className=""
 						placeholder="jhondoe@domain.com"
 						type="email"
 					/>
 				</div>
 
-				<div className="form-group">
-					<label className="lbl">Password</label>
+				<div className="">
+					<label className="">Password</label>
 					<input ref={passwordRef} className="inp" type="password" />
 				</div>
 
-				<div className="form-group">
-					<label className="lbl">Role</label>
+				<div className="">
+					<label className="">Role</label>
 					<select ref={roleRef} className="inp">
-						<option className="opt" value="applicant">
+						<option className="" value="applicant">
 							Applicant
 						</option>
-						<option className="opt" value="employer">
+						<option className="" value="employer">
 							Employer
 						</option>
 					</select>
 				</div>
 
-				<div className="form-group">
-					<button className="btn" type="submit">
+				<div className="">
+					<button className="" type="submit">
 						<span>Sign Up</span>
 					</button>
 				</div>
 
-				<div className="txt-section">
+				<div className="">
 					<p className="">Already have an account?</p>
 					<NavLink to="/login" className="">
 						Login here!

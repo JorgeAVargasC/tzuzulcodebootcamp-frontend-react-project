@@ -18,7 +18,7 @@ export default function LogOut() {
         navigate("/",{replace:true})
     }
     return (
-        <button className="btn" onClick={handleLogOut}>
+        <button className="" onClick={handleLogOut}>
             <span>Log Out</span>
         </button>
     )

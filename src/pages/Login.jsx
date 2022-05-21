@@ -40,26 +40,26 @@ export default function Login() {
 	return (
 		<>
 			<Navbar/>
-			<form onSubmit={login} className="container">
-				<h4 className="subtitle">Login</h4>
+			<form onSubmit={login} className="">
+				<h4 className="">Login</h4>
 
-				<div className="form-group">
-					<label className="lbl">Email address</label>
-					<input ref={emailRef} className="inp" placeholder="jhondoe@domain.com" type="email" />
+				<div className="">
+					<label className="">Email address</label>
+					<input ref={emailRef} className="" placeholder="jhondoe@domain.com" type="email" />
 				</div>
 
-				<div className="form-group">
-					<label className="lbl">Password</label>
-					<input ref={passwordRef} className="inp" type="password" placeholder="Password" />
+				<div className="">
+					<label className="">Password</label>
+					<input ref={passwordRef} className="" type="password" placeholder="Password" />
 				</div>
 
-				<div className="form-group">
-					<button className="btn" type="submit">
+				<div className="">
+					<button className="" type="submit">
 						<span>Login</span>
 					</button>
 				</div>
 
-				<div className="txt-section">
+				<div className="">
 					<p>Don't have an account yet?</p>
 					<NavLink to="/signup" className="">
 						Sing up here!

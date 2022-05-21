@@ -30,7 +30,7 @@ export default function Jobs() {
 		<>
 			<Navbar />
 			<div className="container">
-				<div className="trabajo">
+				<div className="">
 					<input type="text" placeholder="Job" />
 					<input type="text" placeholder="City, Province" />
 					<button className="btn2" type="button">
@@ -41,7 +41,7 @@ export default function Jobs() {
 					
 					{categories.map((category, key) => {
 						return (
-							<div className="form-group">
+							<div className="">
 								<input key={key} type="checkbox" value={category} />
 								<label>{category}</label>
 							</div>
@@ -55,8 +55,8 @@ export default function Jobs() {
 					return (
 						// console.clear(),
 						// console.log(job),
-						<div key={job._id} className="job-container">
-							<div className="job-title">
+						<div key={job._id} className="">
+							<div className="">
 								<h3>{job.title}</h3>
 								<p>{job.salary}</p>
 							</div>
@@ -73,7 +73,7 @@ export default function Jobs() {
 							{job.category.map((category,key) => {
 								return <p key={key}>{category}</p>;
 							})} */}
-							<button className="btn">
+							<button className="">
 								<span>Aplicar</span>
 							</button>
 						</div>

@@ -14,37 +14,37 @@ export default function Navbar() {
 
 
     return (
-        <div className='navbar'>
+        <div className=''>
             
-            <div className='navbar-content'>
-                <a href='#home'>
-                    <img className="logo" alt="" />
-                </a>
+            <div className=''>
+                {/* <a href='#home'>
+                    <img className="" alt="" />
+                </a> */}
 
                 {/* Mobile Navigation */}
-                <nav className={isOpen ? 'navlinks-mobile open' : 'navlinks-mobile close'} onClick={() => setOpen(false)}>
+                {/* <nav className={isOpen ? 'navlinks-mobile open' : 'navlinks-mobile close'} onClick={() => setOpen(false)}>
                     
                     <div className="navlinks-container">
                         <NavLinks/>
                         {auth.logged && <p className='blue-tag'>{auth.name}</p>}                        
                         {auth.logged && <LogOut/>}
                     </div>
-                </nav>
+                </nav> */}
 
-                <Hamburger
+                {/* <Hamburger
                     rounded
                     toggled={isOpen}
                     toggle={setOpen}
                     direction='left'
                     duration={0.4}
-                />
+                /> */}
 
                 {/* Desktop Navigation */}
-                <nav className='navlinks'>                    
+                {/* <nav className='navlinks'>                    
                     <NavLinks/>
                     {auth.logged && <p className='blue-tag'>{auth.name}</p>}
                     {auth.logged && <LogOut/>}
-                </nav>
+                </nav> */}
                 
             </div>
         </div>

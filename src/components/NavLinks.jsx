@@ -10,10 +10,10 @@ export default function NavLinks() {
 
 	return (
 		<>
-			<NavLink to="/home" className="links">Home</NavLink>
-			{auth.logged && <NavLink to="/jobs" className="links">Jobs</NavLink>}
-			{!auth.logged && <NavLink to="/login" className="links">Login</NavLink>}
-			{!auth.logged && <NavLink to="/signup" className="links">Sign Up</NavLink>}
+			<NavLink to="/home" className="">Home</NavLink>
+			{auth.logged && <NavLink to="/jobs" className="">Jobs</NavLink>}
+			{!auth.logged && <NavLink to="/login" className="">Login</NavLink>}
+			{!auth.logged && <NavLink to="/signup" className="">Sign Up</NavLink>}
 		</>
 	);
 }
