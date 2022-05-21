@@ -437,7 +437,36 @@ nav {
 	border-radius: 0 0.3rem 0.3rem 0;
 }
 
-/* Find job*/
+/* Home page */
+
+.section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+section {
+    display: block;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 100%;
+    padding-right: var(--bs-gutter-x,10px);
+    padding-left: var(--bs-gutter-x,10px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.me-5 {
+    margin-right: 3rem!important;
+}
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: #74788d!important;
+}
+
+/* Find job - Jobs*/
 
 .trabajo {
 	width: 100%;
@@ -456,7 +485,6 @@ nav {
 	outline: none;
 }
 
-
 .btn2 {
 	position: relative;
 	width: 100%;
@@ -470,6 +498,7 @@ nav {
 	border: none;
 	height: 4rem;
 	color: var(--light-1);
+	margin-bottom: 0.5rem;
 }
 
 .btn2:hover {
