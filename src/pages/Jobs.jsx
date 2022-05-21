@@ -20,10 +20,11 @@ export default function Jobs() {
 	jobs.map((job) => {
 		job.category.map((category) => {
 			if (!categories.includes(category)) {
-				setCategories([...categories, category]);
+				setCategories([...categories, category].sort());
 			}
 		});
 	});
+
 
 	return (
 		<>
@@ -36,19 +37,19 @@ export default function Jobs() {
 						<span>Find!</span>
 					</button>
 				</div>
+				
+					
+					{categories.map((category, key) => {
+						return (
+							<div className="form-group">
+								<input key={key} type="checkbox" value={category} />
+								<label>{category}</label>
+							</div>
+						)
+					})}				
 
-				{
-					<select className="inp">
-						<option value="">All Categories</option>
-						{categories.map((category, key) => {
-							return (
-								<option key={key} value={category}>
-									{category}
-								</option>
-							);
-						})}
-					</select>
-				}
+					
+				
 
 				{jobs.map((job) => {
 					return (

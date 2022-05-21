@@ -284,8 +284,8 @@ li {
 	animation: scaleUp 0.3s ease-in-out;
 }
 
-.opt {
-	height: 5rem;
+select {
+	text-transform: capitalize;
 }
 
 /* Navigation */
