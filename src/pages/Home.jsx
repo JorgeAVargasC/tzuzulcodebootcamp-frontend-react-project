@@ -24,8 +24,9 @@ export default function Home() {
 			<Navbar />
 			<div className="container">
 				<div className="trabajo">
-					<input type="text" placeholder="Job, Company name..." />
-					<button type="button">Find!</button>
+					<input type="text" placeholder="Job" />
+					<input type="text" placeholder="City, Province" />
+					<button className="btn2" type="button"><span>Find!</span></button>
 				</div>
 				
 				{

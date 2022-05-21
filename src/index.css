@@ -441,23 +441,71 @@ nav {
 
 .trabajo {
 	width: 100%;
-	background-color: #05c270;
-	flex-direction: row;
+	flex-direction: column;
 	border: none;
 }
 
 .trabajo input {
-	width: 75%;
+	width: 100%;
 	height: 4rem;
+	margin-bottom: 0.5rem;
 	text-decoration: none;
 	border: none;
+	border-radius: 0.2rem;
+	text-align: center;
+	outline: none;
 }
 
-.trabajo button {
-	width: 20%;
-	height: 4rem;
+
+.btn2 {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.2rem;
+	background: var(--blue-2);
+	box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
 	border: none;
-	background-color: #6500cd;
+	height: 4rem;
+	color: var(--light-1);
+}
+
+.btn2:hover {
+	cursor: pointer;
+}
+
+.btn2:after {
+	content: " ";
+	width: 0%;
+	height: 100%;
+	background: var(--blue-1);
+	position: absolute;
+	transition: all 0.4s ease-in-out;
+	right: 0;
+}
+
+.btn2:hover::after {
+	right: auto;
+	left: 0;
+	width: 100%;
+}
+
+.btn2 span {
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+	padding: 1.2rem 3rem;
+	color: var(--light-1);
+	letter-spacing: 0.2rem;
+	z-index: 20;
+	transition: all 0.3s ease-in-out;
+}
+
+.btn2:hover span {
+	color: var(--dark-1);
+	animation: scaleUp 0.3s ease-in-out;
 }
 
 /* All Jobs */
