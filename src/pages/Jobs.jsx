@@ -25,8 +25,9 @@ export default function Jobs() {
 
 	jobs.map((job) => {
 		job.category.map((category) => {
-			if (!categories.includes(category)) {
-				setCategories([...categories, category].sort());
+			var catWithOutSpaces = category.trim();
+			if (!categories.includes(catWithOutSpaces)) {
+				setCategories([...categories, catWithOutSpaces].sort());
 			}
 		});
 	});
