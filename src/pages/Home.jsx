@@ -8,16 +8,15 @@ export default function Home() {
 	useEffect(() => {
 		const token = localStorage.getItem("token");
 		getWithToken("/api/jobs", { token })
-		.then(({ data }) => {
-			// console.clear();
-			// console.log(data);
-			setJobs(data);
-		})
-		.catch((err) => {
-			console.log(err);
-		});
+			.then(({ data }) => {
+				// console.clear();
+				// console.log(data);
+				setJobs(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}, []);
-	
 
 	return (
 		<>
@@ -28,16 +27,30 @@ export default function Home() {
 					<button type="button">Find!</button>
 				</div>
 
-				{jobs.map((job) => {
+				{
+				jobs.map((job) => {
 					return (
+						console.clear(),
+						console.log(job),
 						<div key={job._id} className="job-container">
 							<div className="job-title">
 								<h3>{job.title}</h3>
 								<p>{job.salary}</p>
 							</div>
+							{/* Quitar los comentarios luego */}
+							{/* <div className="job-date">
+								<p>{Date(job.creationDate)}</p>
+							</div>
 							<div className="job-description">
 								<p>{job.description}</p>
 							</div>
+							<div className="applicants">
+								<p>{job.applicants.length}</p>
+							</div>
+							{job.category.map((category,key) => {
+								return <p key={key}>{category}</p>;
+							})} */}
+							<button className="btn"><span>Aplicar</span></button>
 						</div>
 					);
 				})}
