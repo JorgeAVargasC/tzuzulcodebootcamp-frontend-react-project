@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { getWithToken } from "../api";
+import { getWithToken, postWithToken } from "../api";
 import Navbar from "../components/Navbar";
 
 export default function Jobs() {
 	const [jobs, setJobs] = useState([]);
 	const [categories, setCategories] = useState([]);
 
-	useEffect(() => {
+	const [selectedCategory, setSelectedCategory] = useState([]);
+
+	const alljobs = () => {
 		const token = localStorage.getItem("token");
 		getWithToken("/api/jobs", { token })
 			.then(({ data }) => {
@@ -14,7 +16,11 @@ export default function Jobs() {
 			})
 			.catch((err) => {
 				console.log(err);
-			});
+			});		
+	};
+
+	useEffect(() => {
+		alljobs();
 	}, []);
 
 	jobs.map((job) => {
@@ -25,6 +31,36 @@ export default function Jobs() {
 		});
 	});
 
+	const addCategory = (category) => {
+		if (!selectedCategory.includes(category)) {
+			setSelectedCategory([...selectedCategory, category]);
+			console.clear();
+			console.log(selectedCategory);
+		} else {
+			setSelectedCategory(selectedCategory.filter((cat) => cat !== category));
+			console.clear();
+			console.log(selectedCategory);
+		}
+	};
+
+	const byCategory = () => {
+		if (selectedCategory.length > 0) {
+			postWithToken("/api/jobs/category", {
+				category: selectedCategory,
+			})
+				.then(({ data }) => {
+					console.log(data);
+					data.message?
+					alert(data.message) :
+					setJobs(data)			
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		} else {
+			alljobs();
+		}
+	};
 
 	return (
 		<>
@@ -33,23 +69,23 @@ export default function Jobs() {
 				<div className="trabajo">
 					<input type="text" placeholder="Job" />
 					<input type="text" placeholder="City, Province" />
-					<button className="btn2" type="button">
+					<button onClick={() => byCategory()} className="btn2" type="button">
 						<span>Find!</span>
 					</button>
 				</div>
-				
-					
-					{categories.map((category, key) => {
-						return (
-							<div className="form-group">
-								<input key={key} type="checkbox" value={category} />
-								<label>{category}</label>
-							</div>
-						)
-					})}				
 
-					
-				
+				{categories.map((category, key) => {
+					return (
+						<div className="form-group">
+							<input
+								type="checkbox"
+								value={category}
+								onClick={() => addCategory(category)}
+							/>
+							<label>{category}</label>
+						</div>
+					);
+				})}
 
 				{jobs.map((job) => {
 					return (
