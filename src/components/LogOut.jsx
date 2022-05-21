@@ -1,7 +1,10 @@
 import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { authContext } from '../context/AuthContext'
 
 export default function LogOut() {
+
+    const navigate = useNavigate()
 
     const {setAuth} = useContext(authContext)
 
@@ -12,6 +15,7 @@ export default function LogOut() {
             name:"",
             id:""
         })
+        navigate("/",{replace:true})
     }
     return (
         <button className="btn" onClick={handleLogOut}>
