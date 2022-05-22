@@ -56,17 +56,17 @@ export default function Home() {
 						</div>
 						<div class="col-lg-6">
 							<div class="tab-content" id="v-pills-tabContent">
-								<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+								<div class="tab-pane fade show active text-center" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 									{/* <img src="assets/images/process-01.png" alt="" class="img-fluid"> */}
-									<img src="https://themesdesign.in/jobcy-react/layout/assets/images/process-01.png" width="400"/>
+									<img src="https://themesdesign.in/jobcy-react/layout/assets/images/process-01.png" alt="" className="img-fluid" width="75%" />
 								</div>
-								<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+								<div class="tab-pane fade text-center" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
 									{/* <img src="assets/images/process-02.png" alt="" class="img-fluid"> */}
-									<img src="https://themesdesign.in/jobcy-react/layout/assets/images/process-02.png" alt="" />
+									<img src="https://themesdesign.in/jobcy-react/layout/assets/images/process-02.png" alt="" className="img-fluid" width="75%" />
 								</div>
-								<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+								<div class="tab-pane fade text-center" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
 									{/* <img src="assets/images/process-03.png" alt="" class="img-fluid"> */}
-									<img src="https://themesdesign.in/jobcy-react/layout/assets/images/process-03.png" alt="" />
+									<img src="https://themesdesign.in/jobcy-react/layout/assets/images/process-03.png" alt="" className="img-fluid" width="75%" />
 								</div>
 							</div>
 						</div>
