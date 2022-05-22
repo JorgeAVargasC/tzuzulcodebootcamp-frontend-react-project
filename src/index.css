@@ -61,6 +61,17 @@ body {
 	align-items: center;
 }
 
+.logo{
+	width: 40px;
+	height: auto;
+}
+
+.logo2{
+	width: 10rem;
+	height: auto;
+	margin-bottom: 2rem;
+}
+
 h1,
 h2,
 h3,

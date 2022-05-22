@@ -4,6 +4,7 @@ import { authContext } from '../context/AuthContext';
 import { Spin as Hamburger } from 'hamburger-react'
 import NavLinks from './NavLinks';
 import LogOut from './LogOut';
+import Logo from "../assets/svg/logo.svg"
 
 export default function Navbar() {
 
@@ -18,7 +19,7 @@ export default function Navbar() {
             
             <div className='navbar-content'>
                 <a href='#home'>
-                    <img className="logo" alt="" />
+                    <img className="logo" src={Logo} alt="" />
                 </a>
 
                 {/* Mobile Navigation */}

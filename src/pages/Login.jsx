@@ -4,6 +4,7 @@ import { post } from "../api";
 import { authContext } from "../context/AuthContext";
 import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Logo from "../assets/svg/logo.svg"
 
 export default function Login() {
 
@@ -43,6 +44,9 @@ export default function Login() {
 		<>
 			<Navbar/>
 			<form onSubmit={login} className="container">
+
+				<img className="logo2" src={Logo} alt="job search logo" />
+
 				<h4 className="subtitle">Login</h4>
 
 				<div className="form-group">
