@@ -5,6 +5,7 @@ import { authContext } from './context/AuthContext';
 import Home from './pages/Home';
 import Jobs from './pages/Jobs';
 import Login from './pages/Login';
+import MyApplications from './pages/MyApplications';
 import SignUp from './pages/SignUp';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/home" element={<Home />} />
 					<Route path="/jobs" element={<Jobs/>} />
+					<Route path="/my-applications" element={<MyApplications/>} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/signup" element={<SignUp />} />
 				</Routes>

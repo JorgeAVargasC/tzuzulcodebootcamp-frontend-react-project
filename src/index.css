@@ -146,10 +146,10 @@ li {
 /* UTILITIES */
 
 .modal{
-	background-color: var(--dark-1);
+	background-color: var(--dark-2);
 	position: fixed;
 	width: 85%;
-	top: 30%;
+	top: 10%;
 	border-radius: 0.5rem;
 	padding: 2rem 1rem 1rem 1rem;
 	z-index: 500;
