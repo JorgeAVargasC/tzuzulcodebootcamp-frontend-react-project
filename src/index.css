@@ -311,7 +311,7 @@ select {
 
 .categories-checkboxes .form-group{
 	width: fit-content;
-	padding: 1rem 1.5rem;
+	padding: 0.8rem 0.9rem;
 	margin: 0.5rem;
 	background-color: #3568d420;
 	flex-direction: row;

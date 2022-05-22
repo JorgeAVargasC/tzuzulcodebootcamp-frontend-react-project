@@ -29,6 +29,7 @@ export default function Login() {
 				id: user.id,
 				name: user.name,
 				role: user.role,
+				email: user.email,
 				logged: true
 			})
 			navigate("/", {replace: true});

@@ -32,6 +32,7 @@ export default function SignUp() {
 				id: data.user.id,
 				name: data.user.name,
 				role: data.user.role,
+				email: data.user.email,
 				logged: true,
 			});
 			navigate("/", {replace: true});

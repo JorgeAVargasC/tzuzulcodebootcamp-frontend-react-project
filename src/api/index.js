@@ -19,14 +19,12 @@ const postWithToken = async (url,data)=>{
             }
         })
     }
-
     return {
         data:{
             failed:true,
-            message:"No tienes token"
+            message:"You don't have token"
         }
     }
-
 }
 
 const getWithToken = async (url)=>{
@@ -50,6 +48,8 @@ const putWithToken = async (url,data)=>{
         })
     }
 }
+
+
 
 export default instance
 

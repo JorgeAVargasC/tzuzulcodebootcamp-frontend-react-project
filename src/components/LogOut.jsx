@@ -14,6 +14,7 @@ export default function LogOut() {
             logged:false,
             name:"",
             id:"",
+            email:"",
             role:"",
         })
         navigate("/",{replace:true})

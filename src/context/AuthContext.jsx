@@ -7,10 +7,9 @@ export default function AuthProvider({ children }) {
 		id: "",
 		name: "",
 		role: "",
+		email: "",
 		logged: false,
 	});
-
-	console.log(auth);
 
 	return (
 		<authContext.Provider value={{auth,	setAuth,}}>
