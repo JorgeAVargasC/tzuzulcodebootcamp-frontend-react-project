@@ -6,8 +6,11 @@ export default function AuthProvider({ children }) {
 	const [auth, setAuth] = useState({
 		id: "",
 		name: "",
+		role: "",
 		logged: false,
 	});
+
+	console.log(auth);
 
 	return (
 		<authContext.Provider value={{auth,	setAuth,}}>

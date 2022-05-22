@@ -13,7 +13,8 @@ export default function LogOut() {
         setAuth({
             logged:false,
             name:"",
-            id:""
+            id:"",
+            role:"",
         })
         navigate("/",{replace:true})
     }

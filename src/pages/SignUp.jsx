@@ -26,10 +26,12 @@ export default function SignUp() {
 		.then(({ data }) => {
 			data.error ? 
 			console.log(data.error) : 
+			console.log(data);
 			localStorage.setItem("token", data.token);
 			setAuth({
 				id: data.user.id,
 				name: data.user.name,
+				role: data.user.role,
 				logged: true,
 			});
 			navigate("/", {replace: true});

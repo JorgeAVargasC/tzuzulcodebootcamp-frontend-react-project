@@ -28,6 +28,7 @@ export default function Login() {
 			setAuth({
 				id: user.id,
 				name: user.name,
+				role: user.role,
 				logged: true
 			})
 			navigate("/", {replace: true});
