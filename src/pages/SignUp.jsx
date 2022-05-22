@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { post } from "../api";
+import { post, postWithToken } from "../api";
 import { authContext } from "../context/AuthContext";
 import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -40,22 +40,22 @@ export default function SignUp() {
 		.catch((err) => console.log(err));
 	};
 
-	// const recoverSession = () => {
-	// 	const token = localStorage.getItem("token");
-	// 	if (token) {
-	// 		postWithToken("/api/auth/validate", { token })
-	// 		.then(({ data }) => {
-	// 			data.error ? 
-	// 			console.log(data.error) :
-	// 			setAuth({
-	// 				id: data.user.id,
-	// 				name: data.user.name,
-	// 				logged: true,
-	// 			});
-	// 		})
-	// 		.catch((err) => console.log(err));
-	// 	}
-	// };
+	const recoverSession = () => {
+		const token = localStorage.getItem("token");
+		if (token) {
+			postWithToken("/api/auth/validate", { token })
+			.then(({ data }) => {
+				data.error ? 
+				console.log(data.error) :
+				setAuth({
+					id: data.user.id,
+					name: data.user.name,
+					logged: true,
+				});
+			})
+			.catch((err) => console.log(err));
+		}
+	};
 
 	return (
 		<>
@@ -108,9 +108,10 @@ export default function SignUp() {
 					</NavLink>
 				</div>
 			</form>
-			{/* <button onClick={recoverSession} className="btn">
+			
+			<button onClick={recoverSession} className="btn">
 				<span>Recover Ression</span>
-			</button> */}
+			</button>
 		</>
 	);
 }
