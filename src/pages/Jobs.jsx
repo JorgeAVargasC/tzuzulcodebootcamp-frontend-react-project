@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { getWithToken, postWithToken } from "../api";
+import React, { useEffect, useRef, useState } from "react";
+import { getWithToken, postWithToken, putWithToken } from "../api";
 import Navbar from "../components/Navbar";
 
 export default function Jobs() {
 	const [jobs, setJobs] = useState([]);
+	const [oneJob, setOneJob] = useState()
+	const [modalJob, setModalJob] = useState(false);
 	const [categories, setCategories] = useState([]);
+	const [countries, setCountries] = useState([]);
 
 	const [selectedCategory, setSelectedCategory] = useState([]);
+	
+	const selectedCountryRef = useRef();
 
 	const alljobs = () => {
 		const token = localStorage.getItem("token");
@@ -23,6 +28,17 @@ export default function Jobs() {
 		alljobs();
 	}, []);
 
+	const removeAccents = (str) => {
+		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	} 
+
+	jobs.map((job) => {
+		var normCountry = removeAccents(job.location.country);
+		if(!countries.includes(normCountry)) {
+			setCountries([...countries, normCountry].sort());
+		}
+	});
+
 	jobs.map((job) => {
 		job.category.map((category) => {
 			var catWithOutSpaces = category.trim();
@@ -35,12 +51,8 @@ export default function Jobs() {
 	const addCategory = (category) => {
 		if (!selectedCategory.includes(category)) {
 			setSelectedCategory([...selectedCategory, category]);
-			console.clear();
-			console.log(selectedCategory);
 		} else {
 			setSelectedCategory(selectedCategory.filter((cat) => cat !== category));
-			console.clear();
-			console.log(selectedCategory);
 		}
 	};
 
@@ -50,7 +62,6 @@ export default function Jobs() {
 				category: selectedCategory,
 			})
 				.then(({ data }) => {
-					console.log(data);
 					data.message ? alert(data.message) : setJobs(data);
 				})
 				.catch((err) => {
@@ -61,9 +72,72 @@ export default function Jobs() {
 		}
 	};
 
+	const byCountry = () => {
+		if (selectedCountryRef.current.value !== "all") {
+			postWithToken("/api/jobs/location", {
+				"country": selectedCountryRef.current.value,
+			})
+			.then(({ data }) => {
+				data.message ? alert(data.message) : setJobs(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		}	else{
+			alljobs();
+		}	
+	}
+
+	const viewJob = (id) =>{
+		const token = localStorage.getItem("token");
+		getWithToken("/api/jobs/" + id, { token })
+		.then(({ data }) => {
+			setOneJob(data);
+			setModalJob(true);
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+	}
+
+	const applyJob = (id) => {
+		const token = localStorage.getItem("token");
+		putWithToken("/api/jobs/apply/" + id, { token })
+		.then(({ data }) => {
+			console.log(data);
+			data.message ? alert(data.message) : console.log(data);			
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+	}
+
+	const unApplyJob = (id) => {
+		const token = localStorage.getItem("token");
+		putWithToken("/api/jobs/unapply/" + id, { token })
+		.then(({ data }) => {
+			console.log(data);
+			data.message ? alert(data.message) : console.log(data);			
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+	}
+
 	return (
 		<>
 			<Navbar />
+
+			{
+				modalJob && 
+				<div className="modal">
+					<h2>{oneJob.title}</h2>
+					<button className="btn" onClick={() => setModalJob(false)}><span>Close</span></button>
+					<button className="btn" onClick={() => applyJob(oneJob._id)}><span>Apply</span></button>
+					<button className="btn" onClick={() => unApplyJob(oneJob._id)}><span>Unapply</span></button>
+				</div> 
+			}
+			
 			<div className="container">
 				<div className="trabajo">
 					<input type="text" placeholder="Job" />
@@ -72,6 +146,15 @@ export default function Jobs() {
 						<span>Find!</span>
 					</button>
 				</div>
+
+				<label>Country</label>
+				<select ref={selectedCountryRef}>
+					<option value="all">All</option>
+					{countries.map((country) => {
+						return <option value={country}>{country}</option>;
+					})}
+				</select>
+				<button onClick={() => byCountry()}>Search Country</button>
 
 				<h4>Categories</h4>
 				<div className="categories-checkboxes">
@@ -112,8 +195,8 @@ export default function Jobs() {
 							{job.category.map((category,key) => {
 								return <p key={key}>{category}</p>;
 							})} */}
-							<button className="btn">
-								<span>Aplicar</span>
+							<button onClick={() => viewJob(job._id)} className="btn">
+								<span>Ver</span>
 							</button>
 						</div>
 					);

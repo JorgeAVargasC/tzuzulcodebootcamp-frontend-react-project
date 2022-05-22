@@ -145,6 +145,16 @@ li {
 
 /* UTILITIES */
 
+.modal{
+	background-color: var(--dark-1);
+	position: fixed;
+	width: 85%;
+	top: 30%;
+	border-radius: 0.5rem;
+	padding: 2rem 1rem 1rem 1rem;
+	z-index: 500;
+}
+
 .blue-tag{
 	width: 100%;
 	margin-bottom: 1rem;
@@ -291,6 +301,7 @@ select {
 /* Categories checkboxes */
 
 .categories-checkboxes{
+	margin-top: 1rem;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -305,6 +316,7 @@ select {
 	background-color: #3568d420;
 	flex-direction: row;
 	border-radius: 0.9rem;
+	color: var(--blue-1);
 }
 
 .categories-checkboxes .form-group label{
@@ -496,6 +508,7 @@ section {
 	width: 100%;
 	flex-direction: column;
 	border: none;
+	margin-bottom: 2rem;
 }
 
 .trabajo input {

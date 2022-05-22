@@ -40,6 +40,17 @@ const getWithToken = async (url)=>{
     }
 }
 
+const putWithToken = async (url,data)=>{
+    const token = localStorage.getItem("token")
+    if(token){
+        return await instance.put(url,data,{
+            headers:{
+                'Authorization':"Bearer "+localStorage.getItem("token")
+            }
+        })
+    }
+}
+
 export default instance
 
-export {post,postWithToken,getWithToken} 
+export {post,postWithToken,getWithToken,putWithToken} 
