@@ -1,52 +1,31 @@
-import React, { useState } from 'react'
-import { useContext } from 'react';
-import { authContext } from '../context/AuthContext';
-import { Spin as Hamburger } from 'hamburger-react'
-import NavLinks from './NavLinks';
-import LogOut from './LogOut';
-
 export default function Navbar() {
-
-    const [isOpen, setOpen] = useState(false);
-
-    const {auth} = useContext(authContext);
-
-
 
     return (
         <div className=''>
-            
-            <div className=''>
-                {/* <a href='#home'>
-                    <img className="" alt="" />
-                </a> */}
-
-                {/* Mobile Navigation */}
-                {/* <nav className={isOpen ? 'navlinks-mobile open' : 'navlinks-mobile close'} onClick={() => setOpen(false)}>
-                    
-                    <div className="navlinks-container">
-                        <NavLinks/>
-                        {auth.logged && <p className='blue-tag'>{auth.name}</p>}                        
-                        {auth.logged && <LogOut/>}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Signup</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled">Disabled</a>
+                            </li>
+                        </ul>
                     </div>
-                </nav> */}
-
-                {/* <Hamburger
-                    rounded
-                    toggled={isOpen}
-                    toggle={setOpen}
-                    direction='left'
-                    duration={0.4}
-                /> */}
-
-                {/* Desktop Navigation */}
-                {/* <nav className='navlinks'>                    
-                    <NavLinks/>
-                    {auth.logged && <p className='blue-tag'>{auth.name}</p>}
-                    {auth.logged && <LogOut/>}
-                </nav> */}
-                
-            </div>
+                </div>
+            </nav>
         </div>
     )
 }
