@@ -218,6 +218,13 @@ li {
 
 /* Forms */
 
+form{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+}
+
 .form-group {
 	display: flex;
 	flex-direction: column;
@@ -486,7 +493,7 @@ nav {
 
 /* Home page */
 
-.section {
+/* .section {
     padding-top: 80px;
     padding-bottom: 80px;
     position: relative;
@@ -494,9 +501,9 @@ nav {
 
 section {
     display: block;
-}
+} */
 
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+/* .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     width: 100%;
     padding-right: var(--bs-gutter-x,10px);
     padding-left: var(--bs-gutter-x,10px);
@@ -511,11 +518,11 @@ section {
 .text-muted {
     --bs-text-opacity: 1;
     color: #74788d!important;
-}
+} */
 
 /* Find job - Jobs*/
 
-.trabajo {
+/* .trabajo {
 	width: 100%;
 	flex-direction: column;
 	border: none;
@@ -583,7 +590,7 @@ section {
 .btn2:hover span {
 	color: var(--dark-1);
 	animation: scaleUp 0.3s ease-in-out;
-}
+} */
 
 /* All Jobs */
 
