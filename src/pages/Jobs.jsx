@@ -209,22 +209,27 @@ export default function Jobs() {
 								// console.clear(),
 								// console.log(job),
 								<div key={job._id} className="job-container">
-									<div className="job-title">
-										<h3>{job.title}</h3>
-									</div>
-									<div className="job-location">										
-										<IoLocation/>
-										<p>{`${job.location.country}, ${job.location.province}${job.location.city ? ", "+job.location.city : ""}`}</p>
-									</div>
 
-									<div className="job-salary">
-										<p className="symbol">$</p>
-										<p>{`${job.salary}`}</p>
-									</div>
+									<div className="job-first-section">
+										<div className="job-title">
+											<h3>{job.title}</h3>
+										</div>
+										<div className="job-location">										
+											<IoLocation/>
+											<p>{`${job.location.country}, ${job.location.province}${job.location.city ? ", "+job.location.city : ""}`}</p>
+										</div>
 
-									<div className="job-applicants">
-										<IoPerson/>
-										<p>{job.applicants.length}</p>
+										<div className="job-salary">
+											<p className="symbol">$</p>
+											<p>{`${job.salary}`}</p>
+										</div>
+
+										<div className="job-applicants">
+											<IoPerson/>
+											<p>{job.applicants.length}</p>
+										</div>
+
+										
 									</div>
 
 									<div className="job-categories">
@@ -232,23 +237,17 @@ export default function Jobs() {
 											return <p className={`tags tag-${category.replace(/ /g, "")}`} key={category}>{category}</p>;
 										})}
 									</div>
-
-									{/* Quitar los comentarios luego */}
-									{/* <div className="job-date">
-								<p>{Date(job.creationDate)}</p>
-							</div>
-							<div className="job-description">
-								<p>{job.description}</p>
-							</div>
-							<div className="applicants">
-								<p>{job.applicants.length}</p>
-							</div>
-							{job.category.map((category,key) => {
-								return <p key={key}>{category}</p>;
-							})} */}
-									<button onClick={() => viewJob(job._id)} className="btn">
-										<span>Ver</span>
-									</button>
+									
+									
+									<div className="job-buttons">
+										<button onClick={() => viewJob(job._id)} className="btn-secondary">
+											<span>View</span>
+										</button>
+										<button className="btn">
+											<span>Apply</span>
+										</button>
+									</div>
+									
 								</div>
 							);
 						})}
