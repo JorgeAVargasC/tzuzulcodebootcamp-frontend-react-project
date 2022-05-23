@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getWithToken, postWithToken, putWithToken } from "../api";
 import Navbar from "../components/Navbar";
+import {IoLocation} from "react-icons/io5";
 
 export default function Jobs() {
 	const [jobs, setJobs] = useState([]);
@@ -62,6 +63,7 @@ export default function Jobs() {
 	const addCategory = (category) => {
 		if (!selectedCategory.includes(category)) {
 			setSelectedCategory([...selectedCategory, category]);
+			
 		} else {
 			setSelectedCategory(selectedCategory.filter((cat) => cat !== category));
 		}
@@ -179,6 +181,9 @@ export default function Jobs() {
 						</button>
 
 						<h4 className="title-categories">Categories</h4>
+						<button className="btn" onClick={() => byCategory()}>
+							<span>Search Categories</span>
+						</button>
 						<div className="categories-checkboxes">
 							{categories.map((category, key) => {
 								return (
@@ -206,8 +211,23 @@ export default function Jobs() {
 								<div key={job._id} className="job-container">
 									<div className="job-title">
 										<h3>{job.title}</h3>
-										<p>{job.salary}</p>
 									</div>
+									<div className="job-location">										
+										<IoLocation/>
+										<p>{`${job.location.country}, ${job.location.province}, ${job.location.city}`}</p>
+									</div>
+
+									<div className="job-salary">
+										<p className="symbol">$</p>
+										<p>{`${job.salary}`}</p>
+									</div>
+
+									<div className="job-categories">
+										{job.category.map((category) => {
+											return <p className={`tags tag-${category.replace(/ /g, "")}`} key={category}>{category}</p>;
+										})}
+									</div>
+
 									{/* Quitar los comentarios luego */}
 									{/* <div className="job-date">
 								<p>{Date(job.creationDate)}</p>
