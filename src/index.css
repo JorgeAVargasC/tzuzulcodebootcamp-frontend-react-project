@@ -192,6 +192,7 @@ li {
 .container {
 	width: 85%;
 	margin-top: 15vh;
+	margin-bottom:4vh;
 	min-height: 80vh;
 	display: flex;
 	justify-content: center;
@@ -276,6 +277,12 @@ form{
 	border: none;
 }
 
+.btn-logout{
+	width: 85%;
+	position: absolute;
+	bottom: 2rem;
+}
+
 .btn:hover {
 	cursor: pointer;
 }
@@ -344,6 +351,45 @@ select {
 
 /* Navigation */
 
+.data-user{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 85%;
+	margin-bottom: 1rem;
+}
+
+.data-user::after{
+	content: " ";
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: var(--gray);
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+.data-user .email{
+	font-weight: 200;
+	color: var(--gray);
+}
+
+.data-user .role{
+	color: var(--gray);
+}
+
+.data-user button{
+	width: 100%;
+	background-color: #05c27020;
+	border-radius: 0.3rem;
+	color: var(--green-1);
+	padding: 0.5rem 1rem;
+	font-weight: 200;
+	border: none;
+	cursor: pointer;
+}
+
 .navbar {
 	width: 100%;
 	height: 15vh;
@@ -407,6 +453,11 @@ nav {
 	width: 100%;
 	padding: 1.5rem;
 	margin-bottom: 1rem;
+}
+
+.active-link {
+	color: var(--light-1);
+	background-color: #3568d420;
 }
 
 .open {
