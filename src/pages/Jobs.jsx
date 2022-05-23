@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getWithToken, postWithToken, putWithToken } from "../api";
 import Navbar from "../components/Navbar";
-import {IoLocation} from "react-icons/io5";
+import {IoLocation, IoPerson} from "react-icons/io5";
 
 export default function Jobs() {
 	const [jobs, setJobs] = useState([]);
@@ -220,6 +220,11 @@ export default function Jobs() {
 									<div className="job-salary">
 										<p className="symbol">$</p>
 										<p>{`${job.salary}`}</p>
+									</div>
+
+									<div className="job-applicants">
+										<IoPerson/>
+										<p>{job.applicants.length}</p>
 									</div>
 
 									<div className="job-categories">

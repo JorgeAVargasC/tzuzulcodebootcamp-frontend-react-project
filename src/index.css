@@ -732,14 +732,16 @@ nav {
 	color: var(--gray);
 }
 
-.job-location svg{
+.job-location svg,
+.job-applicants svg{
 	color: var(--blue-1);
 	width: 1.5rem;
 	height: auto;
 	margin-right: 1rem;
 }
 
-.job-salary{
+.job-salary,
+.job-applicants{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -750,6 +752,13 @@ nav {
 .job-salary .symbol{
 	margin-right: 0.5rem;
 	color: var(--blue-1);
+}
+
+.job-applicants{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
 
 .job-categories{
