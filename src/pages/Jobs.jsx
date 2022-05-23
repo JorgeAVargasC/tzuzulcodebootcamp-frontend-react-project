@@ -161,24 +161,23 @@ export default function Jobs() {
 			}
 			
 			<div className="container">
-				<div className="trabajo">
-					<input type="text" placeholder="Job" />
-					<input type="text" placeholder="City, Province" />
-					<button onClick={() => byCategory()} className="btn2" type="button">
-						<span>Find!</span>
-					</button>
-				</div>
+				
+				<h4 className="title-find">Find your job</h4>
+				<input className="inp find-job" type="text" placeholder="Job" />
+				<button className="btn" onClick={() => byCategory()} type="button">
+					<span>Find!</span>
+				</button>				
 
-				<label>Country</label>
-				<select ref={selectedCountryRef}>
+				<h4 className="title-country">Country</h4>
+				<select className="inp select-country" ref={selectedCountryRef}>
 					<option value="all">All</option>
 					{countries.map((country) => {
 						return <option value={country}>{country}</option>;
 					})}
 				</select>
-				<button onClick={() => byCountry()}>Search Country</button>
+				<button className="btn" onClick={() => byCountry()}><span>Search Country</span></button>
 
-				<h4>Categories</h4>
+				<h4 className="title-categories">Categories</h4>
 				<div className="categories-checkboxes">
 					
 					{

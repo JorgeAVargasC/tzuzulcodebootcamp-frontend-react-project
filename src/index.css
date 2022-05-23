@@ -625,6 +625,27 @@ nav {
     text-justify: inter-word;
 }
 
+.title-find{
+	margin-bottom: 1rem;
+}
+
+.find-job{
+	margin-bottom: 1rem;
+}
+
+.title-country{
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
+
+.select-country{
+	margin-bottom: 1rem;
+}
+
+.title-categories{
+	margin-top: 1rem;
+}
+
 .flex-shrink-0{
     flex-shrink: 0!important;
 }
