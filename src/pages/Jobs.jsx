@@ -28,25 +28,47 @@ export default function Jobs() {
 		alljobs();
 	}, []);
 
+
+	// Countries
+
 	const removeAccents = (str) => {
 		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 	} 
 
+	var countryTemp = [];
+
 	jobs.map((job) => {
 		var normCountry = removeAccents(job.location.country);
-		if(!countries.includes(normCountry)) {
-			setCountries([...countries, normCountry].sort());
+		if(!countryTemp.includes(normCountry)) {
+			countryTemp.push(normCountry);
 		}
 	});
+
+	useEffect(() => {
+		setCountries(countryTemp.sort());
+	},[]);
+	
+
+	// Cateogories
+
+	var categTemp = [];
 
 	jobs.map((job) => {
 		job.category.map((category) => {
 			var catWithOutSpaces = category.trim();
-			if (!categories.includes(catWithOutSpaces)) {
-				setCategories([...categories, catWithOutSpaces].sort());
+			if (!categTemp.includes(catWithOutSpaces)) {
+				categTemp.push(catWithOutSpaces);
 			}
 		});
 	});
+
+	useEffect(() => {
+		setCategories(categTemp.sort());
+	}, []);
+
+	
+
+	
 
 	const addCategory = (category) => {
 		if (!selectedCategory.includes(category)) {
@@ -159,7 +181,8 @@ export default function Jobs() {
 				<h4>Categories</h4>
 				<div className="categories-checkboxes">
 					
-					{categories.map((category, key) => {
+					{
+					categories.map((category, key) => {
 						return (
 							<div className="form-group">
 								<input
@@ -170,7 +193,8 @@ export default function Jobs() {
 								<label>{category}</label>
 							</div>
 						);
-					})}
+					})
+					}
 				</div>
 
 				{jobs.map((job) => {
@@ -201,10 +225,6 @@ export default function Jobs() {
 						</div>
 					);
 				})}
-
-				{/* <p className="tag">
-					Javascript
-				</p> */}
 			</div>
 		</>
 	);

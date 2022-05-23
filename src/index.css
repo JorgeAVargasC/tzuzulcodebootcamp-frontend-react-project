@@ -357,10 +357,10 @@ select {
 	align-items: flex-start;
 	justify-content: flex-start;
 	width: 85%;
-	margin-bottom: 1rem;
+	margin-bottom: 3rem;
 }
 
-.data-user::after{
+/* .data-user::after{
 	content: " ";
 	display: block;
 	width: 100%;
@@ -368,7 +368,7 @@ select {
 	background-color: var(--gray);
 	margin-top: 1rem;
 	margin-bottom: 2rem;
-}
+} */
 
 .data-user .email{
 	font-weight: 200;

@@ -24,9 +24,7 @@ export default function Navbar() {
 					className={isOpen ? "navlinks-mobile open" : "navlinks-mobile close"}
 					onClick={() => setOpen(false)}
 				>
-					<h4 className="menu-title">
-						Menu
-					</h4>
+					
 					{
 						auth.logged && 
 						<div className="data-user">
@@ -34,9 +32,12 @@ export default function Navbar() {
                         <p className="role">{auth.role}</p>
                         {/* {auth.logged && <p className="email">{auth.email}</p>} */}
 						{/* {auth.logged && <LogOut />} */}
-						</div>
-					
+						</div>					
 					}
+
+					<h4 className="menu-title">
+						Menu
+					</h4>
 					
 
                     {auth.logged && <LogOut />}
