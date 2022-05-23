@@ -150,9 +150,6 @@ export default function Jobs() {
 					<button className="btn" onClick={() => applyJob(oneJob._id)}>
 						<span>Apply</span>
 					</button>
-					<button className="btn" onClick={() => unApplyJob(oneJob._id)}>
-						<span>Unapply</span>
-					</button>
 				</div>
 			)}
 
@@ -243,7 +240,7 @@ export default function Jobs() {
 										<button onClick={() => viewJob(job._id)} className="btn-secondary">
 											<span>View</span>
 										</button>
-										<button className="btn">
+										<button onClick={() => applyJob(job._id)} className="btn">
 											<span>Apply</span>
 										</button>
 									</div>
