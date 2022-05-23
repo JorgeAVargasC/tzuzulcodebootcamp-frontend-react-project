@@ -201,10 +201,13 @@ export default function Jobs() {
 
 					<div className="item-container">
 						<h4 className="title-find">Jobs</h4>
-						{jobs.map((job) => {
+						
+						{
+						jobs.length === 0 ? <div className="loader"><div class="lds-dual-ring"></div></div> : 
+
+						jobs.map((job) => {
 							return (
-								// console.clear(),
-								// console.log(job),
+								
 								<div key={job._id} className="job-container">
 
 									<div className="job-first-section">

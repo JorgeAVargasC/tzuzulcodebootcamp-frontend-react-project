@@ -63,61 +63,63 @@ export default function SignUp() {
 			<Navbar />
 
 			<div className="container">
-				<form onSubmit={signup}>
-					<img className="logo2" src={Logo} alt="job-search-logo" />
-					<h4 className="subtitle">Sign Up</h4>
+				<div className="login-signup-container">
+					<form onSubmit={signup}>
+						<img className="logo2" src={Logo} alt="job-search-logo" />
+						<h4 className="subtitle">Sign Up</h4>
 
-					<div className="form-group">
-						<label className="lbl">Name</label>
-						<input ref={nameRef} className="inp" placeholder="Jhon Doe" type="text" />
-					</div>
+						<div className="form-group">
+							<label className="lbl">Name</label>
+							<input ref={nameRef} className="inp" placeholder="Jhon Doe" type="text" />
+						</div>
 
-					<div className="form-group">
-						<label className="lbl">Email address</label>
-						<input
-							ref={emailRef}
-							className="inp"
-							placeholder="jhondoe@domain.com"
-							type="email"
-						/>
-					</div>
+						<div className="form-group">
+							<label className="lbl">Email address</label>
+							<input
+								ref={emailRef}
+								className="inp"
+								placeholder="jhondoe@domain.com"
+								type="email"
+							/>
+						</div>
 
-					<div className="form-group">
-						<label className="lbl">Password</label>
-						<input ref={passwordRef} className="inp" type="password" />
-					</div>
+						<div className="form-group">
+							<label className="lbl">Password</label>
+							<input ref={passwordRef} className="inp" type="password" />
+						</div>
 
-					<div className="form-group">
-						<label className="lbl">Role</label>
-						<select ref={roleRef} className="inp">
-							<option className="opt" value="applicant">
-								Applicant
-							</option>
-							<option className="opt" value="employer">
-								Employer
-							</option>
-						</select>
-					</div>
+						<div className="form-group">
+							<label className="lbl">Role</label>
+							<select ref={roleRef} className="inp">
+								<option className="opt" value="applicant">
+									Applicant
+								</option>
+								<option className="opt" value="employer">
+									Employer
+								</option>
+							</select>
+						</div>
 
-					<div className="form-group">
-						<button className="btn" type="submit">
-							<span>Sign Up</span>
-						</button>
-					</div>
+						<div className="form-group">
+							<button className="btn" type="submit">
+								<span>Sign Up</span>
+							</button>
+						</div>
 
-					<div className="form-group">
-						<button onClick={recoverSession} className="btn">
-							<span>Recover Sesion</span>
-						</button>
-					</div>
+						<div className="form-group">
+							<button onClick={recoverSession} className="btn">
+								<span>Recover Sesion</span>
+							</button>
+						</div>
 
-					<div className="txt-section">
-						<p className="">Already have an account?</p>
-						<NavLink to="/login" className="blue-tag">
-							Login here!
-						</NavLink>
-					</div>
-				</form>
+						<div className="txt-section">
+							<p className="">Already have an account?</p>
+							<NavLink to="/login" className="blue-tag">
+								Login here!
+							</NavLink>
+						</div>
+					</form>
+				</div>
 			</div>
 		</>
 	);
