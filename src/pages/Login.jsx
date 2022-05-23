@@ -8,6 +8,7 @@ import Logo from "../assets/svg/logo.svg";
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content'
 
+
 export default function Login() {
 
 	const MySwal = withReactContent(Swal)
@@ -45,10 +46,10 @@ export default function Login() {
 				text: "Welcome back!",
 			});
 			})
-		
-		.catch((err) => {
-			console.log(err);
-		});
+
+			.catch((err) => {
+				console.log(err);
+			});
 	}
 
 	return (
