@@ -61,8 +61,9 @@ export default function MyApplications() {
 			)}
 
 			<div className="container">
-				<h4>My Applications</h4>
+				<h4 className="title-categories">My Applications</h4>
 				{
+
                     applications.length > 0 ?
                         applications.map((job) => {
                             return (
@@ -122,7 +123,7 @@ export default function MyApplications() {
                                 // </div>
                             );
                         })
-                    : <h2>You have not yet applied for any job offer</h2>
+                    : <div className="loader"><div class="lds-dual-ring"></div></div>
                 
                 }
 			</div>

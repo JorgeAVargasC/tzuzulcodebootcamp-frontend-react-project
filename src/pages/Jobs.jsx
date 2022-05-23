@@ -182,7 +182,9 @@ export default function Jobs() {
 							<span>Search Categories</span>
 						</button>
 						<div className="categories-checkboxes">
-							{categories.map((category, key) => {
+							{
+							categories.length === 0 ? <div className="loader"><div class="lds-dual-ring"></div></div> : 
+							categories.map((category, key) => {
 								return (
 									<div className="form-group">
 										<input
