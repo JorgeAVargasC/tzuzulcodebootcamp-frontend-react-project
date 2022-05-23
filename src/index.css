@@ -83,20 +83,20 @@ p {
 }
 
 h1 {
-	font-size: 5rem;
-}
-
-h2 {
 	font-size: 4rem;
 }
 
+h2 {
+	font-size: 3rem;
+}
+
 h3 {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	font-weight: 400;
 }
 
 h4 {
-	font-size: 2rem;
+	font-size: 1rem;
 	text-transform: uppercase;
 	letter-spacing: 0.14em;
 }
@@ -544,104 +544,47 @@ nav {
 
 /* Home page */
 
-/* .section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+.section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     position: relative;
 }
 
-section {
-    display: block;
-} */
+.section-title {
+    font-size: 30px;
+    line-height: 1.500;
+    text-align: justify;
+    text-justify: inter-word;
+}
 
-/* .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+.process-menu a{
+    text-decoration: none;
+    color: #f2f2f4;
+    letter-spacing: normal;
+}
+
+.parrafo h3 {
+    font-weight: bold;
+}
+
+.number{
+    color: #151625;
+    background-color:#b3cbff;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     width: 100%;
     padding-right: var(--bs-gutter-x,10px);
     padding-left: var(--bs-gutter-x,10px);
     margin-right: auto;
     margin-left: auto;
 }
-
-.me-5 {
-    margin-right: 3rem!important;
-}
-
-.text-muted {
-    --bs-text-opacity: 1;
-    color: #74788d!important;
-} */
-
-/* Find job - Jobs*/
-
-/* .trabajo {
-	width: 100%;
-	flex-direction: column;
-	border: none;
-	margin-bottom: 2rem;
-}
-
-.trabajo input {
-	width: 100%;
-	height: 4rem;
-	margin-bottom: 0.5rem;
-	text-decoration: none;
-	border: none;
-	border-radius: 0.2rem;
-	text-align: center;
-	outline: none;
-}
-
-.btn2 {
-	position: relative;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 0.2rem;
-	background: var(--blue-2);
-	box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
-	overflow: hidden;
-	border: none;
-	height: 4rem;
-	color: var(--light-1);
-	margin-bottom: 0.5rem;
-}
-
-.btn2:hover {
-	cursor: pointer;
-}
-
-.btn2:after {
-	content: " ";
-	width: 0%;
-	height: 100%;
-	background: var(--blue-1);
-	position: absolute;
-	transition: all 0.4s ease-in-out;
-	right: 0;
-}
-
-.btn2:hover::after {
-	right: auto;
-	left: 0;
-	width: 100%;
-}
-
-.btn2 span {
-	text-align: center;
-	text-decoration: none;
-	width: 100%;
-	padding: 1.2rem 3rem;
-	color: var(--light-1);
-	letter-spacing: 0.2rem;
-	z-index: 20;
-	transition: all 0.3s ease-in-out;
-}
-
-.btn2:hover span {
-	color: var(--dark-1);
-	animation: scaleUp 0.3s ease-in-out;
-} */
 
 /* All Jobs */
 
