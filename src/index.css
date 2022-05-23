@@ -142,6 +142,7 @@ a:hover::before {
 p,
 label,
 input,
+textarea,
 select,
 option,
 span,
@@ -326,6 +327,7 @@ select {
 
 .categories-checkboxes {
 	margin-top: 1rem;
+	margin-bottom: 1rem;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -496,6 +498,16 @@ nav {
 
 .navlinks {
 	display: none;
+}
+
+/* Create */
+
+.create-container .inp{
+	margin-bottom: 1rem;
+}
+
+.title-categories{
+	margin-bottom: 1rem;
 }
 
 @keyframes slide-left {
@@ -678,6 +690,7 @@ nav {
 	display: flex;
 	flex-direction: column;
 }
+
 
 /* All Jobs */
 
