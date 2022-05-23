@@ -185,11 +185,13 @@ export default function Jobs() {
 						return (
 							<div className="form-group">
 								<input
+									className="cbx"
+									id="cbx"
 									type="checkbox"
 									value={category}
 									onClick={() => addCategory(category)}
 								/>
-								<label>{category}</label>
+								<label className="">{category}</label>
 							</div>
 						);
 					})
