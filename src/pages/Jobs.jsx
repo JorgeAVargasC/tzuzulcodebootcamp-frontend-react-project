@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getWithToken, postWithToken, putWithToken } from "../api";
 import Navbar from "../components/Navbar";
-import {IoLocation, IoPerson} from "react-icons/io5";
+import { IoLocation, IoPerson } from "react-icons/io5";
+import "animate.css"
 
 export default function Jobs() {
 	const [jobs, setJobs] = useState([]);
@@ -63,7 +64,6 @@ export default function Jobs() {
 	const addCategory = (category) => {
 		if (!selectedCategory.includes(category)) {
 			setSelectedCategory([...selectedCategory, category]);
-			
 		} else {
 			setSelectedCategory(selectedCategory.filter((cat) => cat !== category));
 		}
@@ -142,14 +142,56 @@ export default function Jobs() {
 			<Navbar />
 
 			{modalJob && (
-				<div className="modal">
-					<h2>{oneJob.title}</h2>
-					<button className="btn" onClick={() => setModalJob(false)}>
-						<span>Close</span>
-					</button>
-					<button className="btn" onClick={() => applyJob(oneJob._id)}>
-						<span>Apply</span>
-					</button>
+				<div className="modal ">
+					<div className="modal-info animate__animated animate__bounceIn">
+						<div className="job-first-section">
+							<div className="job-title">
+								<h3>{oneJob.title}</h3>
+							</div>
+							<div className="job-location">
+								<IoLocation />
+								<p>{`${oneJob.location.country}, ${oneJob.location.province}${
+									oneJob.location.city ? ", " + oneJob.location.city : ""
+								}`}</p>
+							</div>
+
+							<div className="job-salary">
+								<p className="symbol">$</p>
+								<p>{`${oneJob.salary}`}</p>
+							</div>
+
+							<div className="job-applicants">
+								<IoPerson />
+								<p>{oneJob.applicants.length}</p>
+							</div>
+						</div>
+
+						<div className="job-categories">
+							{oneJob.category.map((category) => {
+								return (
+									<p
+										className={`tags tag-${category.replace(/ /g, "")}`}
+										key={category}
+									>
+										{category}
+									</p>
+								);
+							})}
+						</div>
+
+						<div className="job-description">
+							<p>{oneJob.description}</p>
+						</div>
+
+						<div className="job-buttons">
+							<button className="btn-secondary" onClick={() => setModalJob(false)}>
+								<span>Close</span>
+							</button>
+							<button className="btn" onClick={() => applyJob(oneJob._id)}>
+								<span>Apply</span>
+							</button>
+						</div>
+					</div>
 				</div>
 			)}
 
@@ -182,77 +224,100 @@ export default function Jobs() {
 							<span>Search Categories</span>
 						</button>
 						<div className="categories-checkboxes">
-							{
-							categories.length === 0 ? <div className="loader"><div class="lds-dual-ring"></div></div> : 
-							categories.map((category, key) => {
-								return (
-									<div className="form-group">
-										<input
-											className="cbx"
-											id="cbx"
-											type="checkbox"
-											value={category}
-											onClick={() => addCategory(category)}
-										/>
-										<label className="">{category}</label>
-									</div>
-								);
-							})}
+							{categories.length === 0 ? (
+								<div className="loader">
+									<div class="lds-dual-ring"></div>
+								</div>
+							) : (
+								categories.map((category, key) => {
+									return (
+										<div className="form-group">
+											<input
+												className="cbx"
+												id="cbx"
+												type="checkbox"
+												value={category}
+												onClick={() => addCategory(category)}
+											/>
+											<label className="">{category}</label>
+										</div>
+									);
+								})
+							)}
 						</div>
 					</div>
 
 					<div className="item-container">
 						<h4 className="title-find">Jobs</h4>
-						
-						{
-						jobs.length === 0 ? <div className="loader"><div class="lds-dual-ring"></div></div> : 
 
-						jobs.map((job) => {
-							return (
-								
-								<div key={job._id} className="job-container">
+						{jobs.length === 0 ? (
+							<div className="loader">
+								<div class="lds-dual-ring"></div>
+							</div>
+						) : (
+							jobs.map((job) => {
+								return (
+									<div key={job._id} className="job-container">
+										<div className="job-first-section">
+											<div className="job-title">
+												<h3>{job.title}</h3>
+											</div>
+											<div className="job-location">
+												<IoLocation />
+												<p>{`${job.location.country}, ${
+													job.location.province
+												}${
+													job.location.city
+														? ", " + job.location.city
+														: ""
+												}`}</p>
+											</div>
 
-									<div className="job-first-section">
-										<div className="job-title">
-											<h3>{job.title}</h3>
+											<div className="job-salary">
+												<p className="symbol">$</p>
+												<p>{`${job.salary}`}</p>
+											</div>
+
+											<div className="job-applicants">
+												<IoPerson />
+												<p>{job.applicants.length}</p>
+											</div>
 										</div>
-										<div className="job-location">										
-											<IoLocation/>
-											<p>{`${job.location.country}, ${job.location.province}${job.location.city ? ", "+job.location.city : ""}`}</p>
+
+										<div className="job-categories">
+											{job.category.map((category) => {
+												return (
+													<p
+														className={`tags tag-${category.replace(
+															/ /g,
+															""
+														)}`}
+														key={category}
+													>
+														{category}
+													</p>
+												);
+											})}
 										</div>
 
-										<div className="job-salary">
-											<p className="symbol">$</p>
-											<p>{`${job.salary}`}</p>
+										<div className="job-buttons">
+											<button
+												onClick={() => viewJob(job._id)}
+												className="btn-secondary"
+											>
+												<span>View</span>
+											</button>
+											<button
+												onClick={() => applyJob(job._id)}
+												className="btn"
+											>
+												<span>Apply</span>
+											</button>
 										</div>
-
-										<div className="job-applicants">
-											<IoPerson/>
-											<p>{job.applicants.length}</p>
-										</div>
-
-										
 									</div>
-
-									<div className="job-categories">
-										{job.category.map((category) => {
-											return <p className={`tags tag-${category.replace(/ /g, "")}`} key={category}>{category}</p>;
-										})}
-									</div>
-									
-									
-									<div className="job-buttons">
-										<button onClick={() => viewJob(job._id)} className="btn-secondary">
-											<span>View</span>
-										</button>
-										<button onClick={() => applyJob(job._id)} className="btn">
-											<span>Apply</span>
-										</button>
-									</div>
-									
-								</div>
-							);
-						})}
+								);
+							})
+						)}
 					</div>
 				</div>
 			</div>

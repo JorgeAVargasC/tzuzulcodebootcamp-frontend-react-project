@@ -42,10 +42,12 @@ export default function MyOffers() {
 
 			{modalJob && (
 				<div className="modal">
-					<h2>{oneJob.title}</h2>
-					<button className="btn" onClick={() => setModalJob(false)}>
-						<span>Close</span>
-					</button>
+					<div className="modal-info">
+						<h2>{oneJob.title}</h2>
+						<button className="btn" onClick={() => setModalJob(false)}>
+							<span>Close</span>
+						</button>
+					</div>					
 				</div>
 			)}
 

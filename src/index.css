@@ -158,13 +158,26 @@ li {
 /* UTILITIES */
 
 .modal {
-	background-color: var(--dark-2);
+	background-color: #0000007c;
 	position: fixed;
-	width: 85%;
-	top: 10%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	margin-top: 0;
 	border-radius: 0.5rem;
 	padding: 2rem 1rem 1rem 1rem;
-	z-index: 500;
+	z-index: 1000;
+}
+
+.modal-info{
+	background-color: var(--dark-1);
+	width: 85%;
+	padding: 2rem 1rem 1rem 1rem;
+	border-radius: 0.5rem;
+	border: 1px solid var(--dark-3);
 }
 
 .blue-tag {
@@ -816,6 +829,11 @@ nav {
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+}
+
+.job-description{
+	color: var(--gray);
+	margin-bottom: 1rem;
 }
 
 .job-buttons {
