@@ -99,7 +99,7 @@ export default function Create() {
 		<>
 			<Navbar />
 			<div className="container">
-				<h2>Create</h2>
+				<h4 className="title-categories">Create</h4>
 
 				<div className="create-container">
 					<input ref={titleRef} className="inp" type="text" placeholder="Title" />
