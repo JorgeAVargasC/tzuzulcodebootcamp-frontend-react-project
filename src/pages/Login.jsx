@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 import Logo from "../assets/svg/logo.svg";
 
 export default function Login() {
-	const { auth, setAuth } = useContext(authContext);
+	const { setAuth } = useContext(authContext);
 
 	const navigate = useNavigate();
 

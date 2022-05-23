@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import { NavLink } from "react-router-dom";
 import { authContext } from "../context/AuthContext";
+import {IoHome} from "react-icons/io5";
 
 
 export default function NavLinks() {
@@ -11,7 +12,8 @@ export default function NavLinks() {
 
 	return (
 		<>
-			<NavLink to="/home" className="links">Home</NavLink>
+			
+			<NavLink to="/home" className="links"><IoHome/>Home</NavLink>
 			{(auth.logged && auth.role==="applicant") && <NavLink to="/jobs" className="links">Jobs</NavLink>}
 			{(auth.logged && auth.role==="applicant") && <NavLink to="/my-applications" className="links">My Applications</NavLink>}
 			{(auth.logged && auth.role==="employer") ? <NavLink to="/my-offers" className="links">My Offers</NavLink>:null}

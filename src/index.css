@@ -429,6 +429,21 @@ nav {
 	width: 85%;
 }
 
+.menu-title{
+	width: 85%;
+	text-align: start;
+}
+
+.menu-title::after{
+	content: " ";
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: var(--gray);
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
 .navlinks-mobile {
 	width: 100%;
 	padding-top: 15vh;
@@ -453,6 +468,17 @@ nav {
 	width: 100%;
 	padding: 1.5rem;
 	margin-bottom: 1rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.navlinks-mobile .links svg{
+	width: 3rem;
+	height: auto;
+	margin-right: 3rem;
+	text-align: center;
 }
 
 .active-link {

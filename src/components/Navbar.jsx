@@ -24,12 +24,20 @@ export default function Navbar() {
 					className={isOpen ? "navlinks-mobile open" : "navlinks-mobile close"}
 					onClick={() => setOpen(false)}
 				>
-					<div className="data-user">
-						{auth.logged && <p className="name">Hi! {auth.name}</p>}
+					<h4 className="menu-title">
+						Menu
+					</h4>
+					{
+						auth.logged && 
+						<div className="data-user">
+						<p className="name">Hi! {auth.name}</p>
+                        <p className="role">{auth.role}</p>
                         {/* {auth.logged && <p className="email">{auth.email}</p>} */}
-                        {auth.logged && <p className="role">{auth.role}</p>}
 						{/* {auth.logged && <LogOut />} */}
-					</div>
+						</div>
+					
+					}
+					
 
                     {auth.logged && <LogOut />}
 

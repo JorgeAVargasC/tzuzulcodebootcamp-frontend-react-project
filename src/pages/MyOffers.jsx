@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
 import Navbar from "../components/Navbar";
 import { authContext } from "../context/AuthContext";
-import { postWithToken, getWithToken } from "../api";
+import { postWithToken } from "../api";
 
 export default function MyOffers() {
 

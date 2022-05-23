@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { postWithToken, putWithToken } from "../api";
 import Navbar from "../components/Navbar";
-import Jobs from "./Jobs";
 
 export default function MyApplications() {
 	const [applications, setApplications] = useState([]);
