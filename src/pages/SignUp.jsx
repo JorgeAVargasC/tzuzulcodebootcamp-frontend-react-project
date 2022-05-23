@@ -105,7 +105,7 @@ export default function SignUp() {
 
 					<div className="form-group">
 						<button onClick={recoverSession} className="btn">
-							<span>Recover Ression</span>
+							<span>Recover Sesion</span>
 						</button>
 					</div>
 
