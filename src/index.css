@@ -769,6 +769,44 @@ nav {
 	margin: 0.5rem;
 }
 
+.tag-nodejs,
+.tag-python,
+.tag-vuejs,
+.tag-express,
+.tag-mongodb{
+	background-color: #05c27020 !important;
+	color: var(--green-1) !important;
+}
+
+.tag-javascript{
+	background-color: #ffcc0020 !important;
+	color: var(--yellow-1) !important;
+}
+
+.tag-graphql{
+	background-color: #b56bdf20 !important;
+	color: var(--purple-2) !important;
+}
+
+.tag-mysql,
+.tag-java,
+.tag-html,
+.tag-kotlin{
+	background-color: #ff880120 !important;
+	color: var(--orange-1) !important;
+}
+
+.tag-angular{
+	background-color: #fe3b3a20 !important;
+	color: var(--red-2) !important;
+}
+
+.tag-redux,
+.tag-bootstrap{
+	background-color: #6500cd20 !important;
+	color: var(--purple-1) !important;
+}
+
 /* Card */
 
 .card {
