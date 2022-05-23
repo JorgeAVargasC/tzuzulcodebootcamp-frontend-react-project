@@ -1044,7 +1044,8 @@ nav {
 /* Responsive Desktop */
 
 @media (min-width: 1000px) {
-	.login-signup-container {
+	.login-signup-container,
+	.create-container{
 		width: 30%;
 		background-color: var(--dark-2);
 		padding: 3rem 2rem 2rem 2rem;

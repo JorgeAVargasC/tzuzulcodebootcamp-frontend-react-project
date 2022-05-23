@@ -2,9 +2,12 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import Navbar from "../components/Navbar";
 import { getWithToken, postWithToken } from "../api";
 import { authContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Create() {
 	const { auth } = useContext(authContext);
+
+	const navigate = useNavigate();
 
 	const [jobs, setJobs] = useState([]);
 	const [categories, setCategories] = useState([]);
@@ -88,7 +91,10 @@ export default function Create() {
 			salary: salaryRef.current.value,
 		})
 			.then(({ data }) => {
-				data.message ? alert(data.message) : console.log(data);
+				data.message ? 
+				alert(data.message) : 
+				console.log(data);
+				navigate("/", { replace: true });				
 			})
 			.catch((err) => {
 				console.log(err);
@@ -98,10 +104,16 @@ export default function Create() {
 	return (
 		<>
 			<Navbar />
+
+			
+
 			<div className="container">
-				<h4 className="title-categories">Create</h4>
+				
 
 				<div className="create-container">
+
+				<h4 className="title-categories">Create</h4>
+
 					<input ref={titleRef} className="inp" type="text" placeholder="Title" />
 					<input ref={countryRef} className="inp" type="text" placeholder="Country" />
 					<input ref={provinceRef} className="inp" type="text" placeholder="Province" />

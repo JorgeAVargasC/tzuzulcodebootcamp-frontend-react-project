@@ -109,18 +109,7 @@ export default function MyApplications() {
 									</div>
 									
 								</div>
-                                // <div className="job-container">
-                                //     <div className="job-title">
-                                //         <h3>{application.title}</h3>
-                                //         <p>{application.salary}</p>
-                                //     </div>
-                                //     {/* <button onClick={() => viewJob(application._id)} className="btn">
-                                //         <span>Ver</span>
-                                //     </button> */}
-                                //     <button className="btn" onClick={() => unApplyJob(application._id)}>
-                                //         <span>Unapply</span>
-                                //     </button>
-                                // </div>
+                               
                             );
                         })
                     : <div className="loader"><div class="lds-dual-ring"></div></div>
