@@ -214,7 +214,7 @@ export default function Jobs() {
 									</div>
 									<div className="job-location">										
 										<IoLocation/>
-										<p>{`${job.location.country}, ${job.location.province}, ${job.location.city}`}</p>
+										<p>{`${job.location.country}, ${job.location.province}${job.location.city ? ", "+job.location.city : ""}`}</p>
 									</div>
 
 									<div className="job-salary">
