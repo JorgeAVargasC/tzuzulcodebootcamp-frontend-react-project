@@ -158,10 +158,12 @@ export default function Jobs() {
 				<div className="jobs-grid-container">
 					<div className="item-container">
 						<h4 className="title-find">Find your job</h4>
-						<input className="inp find-job" type="text" placeholder="Job" />
-						<button className="btn" onClick={() => byCategory()} type="button">
-							<span>Find!</span>
-						</button>
+						<div className="search-job">
+							<input className="inp find-job" type="text" placeholder="Job" />
+							<button className="btn" onClick={() => byCategory()} type="button">
+								<span>Find!</span>
+							</button>
+						</div>
 					</div>
 
 					<div className="item-container">
