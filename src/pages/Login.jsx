@@ -6,9 +6,15 @@ import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logo from "../assets/svg/logo.svg";
 import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content'
 
 export default function Login() {
+
+	const MySwal = withReactContent(Swal)
+
 	const { setAuth } = useContext(authContext);
+
+
 
 	const navigate = useNavigate();
 
@@ -33,7 +39,7 @@ export default function Login() {
 				logged: true,
 			});
 			navigate("/", { replace: true });
-			Swal.fire({
+			MySwal.fire({
 				icon: "success",
 				title: "Login Success",
 				text: "Welcome back!",

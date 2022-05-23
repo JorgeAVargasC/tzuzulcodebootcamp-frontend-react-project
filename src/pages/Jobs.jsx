@@ -28,7 +28,6 @@ export default function Jobs() {
 		const token = localStorage.getItem("token");
 		getWithToken("/api/jobs", { token })
 			.then(({ data }) => {
-
 				setJobs(data);
 
 				data.map((job) => {
@@ -59,8 +58,6 @@ export default function Jobs() {
 	useEffect(() => {
 		alljobs();
 	}, []);
-
-	
 
 	const addCategory = (category) => {
 		if (!selectedCategory.includes(category)) {
@@ -158,52 +155,59 @@ export default function Jobs() {
 			)}
 
 			<div className="container">
-				<h4 className="title-find">Find your job</h4>
-				<input className="inp find-job" type="text" placeholder="Job" />
-				<button className="btn" onClick={() => byCategory()} type="button">
-					<span>Find!</span>
-				</button>
+				<div className="jobs-grid-container">
+					<div className="item-container">
+						<h4 className="title-find">Find your job</h4>
+						<input className="inp find-job" type="text" placeholder="Job" />
+						<button className="btn" onClick={() => byCategory()} type="button">
+							<span>Find!</span>
+						</button>
+					</div>
 
-				<h4 className="title-country">Country</h4>
-				<select className="inp select-country" ref={selectedCountryRef}>
-					<option value="all">All</option>
-					{countries.map((country) => {
-						return <option value={country}>{country}</option>;
-					})}
-				</select>
-				<button className="btn" onClick={() => byCountry()}>
-					<span>Search Country</span>
-				</button>
+					<div className="item-container">
+						<h4 className="title-country">Country</h4>
+						<select className="inp select-country" ref={selectedCountryRef}>
+							<option value="all">All</option>
+							{countries.map((country) => {
+								return <option value={country}>{country}</option>;
+							})}
+						</select>
+						<button className="btn" onClick={() => byCountry()}>
+							<span>Search Country</span>
+						</button>
 
-				<h4 className="title-categories">Categories</h4>
-				<div className="categories-checkboxes">
-					{categories.map((category, key) => {
-						return (
-							<div className="form-group">
-								<input
-									className="cbx"
-									id="cbx"
-									type="checkbox"
-									value={category}
-									onClick={() => addCategory(category)}
-								/>
-								<label className="">{category}</label>
-							</div>
-						);
-					})}
-				</div>
+						<h4 className="title-categories">Categories</h4>
+						<div className="categories-checkboxes">
+							{categories.map((category, key) => {
+								return (
+									<div className="form-group">
+										<input
+											className="cbx"
+											id="cbx"
+											type="checkbox"
+											value={category}
+											onClick={() => addCategory(category)}
+										/>
+										<label className="">{category}</label>
+									</div>
+								);
+							})}
+						</div>
+					</div>
 
-				{jobs.map((job) => {
-					return (
-						// console.clear(),
-						// console.log(job),
-						<div key={job._id} className="job-container">
-							<div className="job-title">
-								<h3>{job.title}</h3>
-								<p>{job.salary}</p>
-							</div>
-							{/* Quitar los comentarios luego */}
-							{/* <div className="job-date">
+					<div className="item-container">
+						<h4 className="title-find">Jobs</h4>
+						{jobs.map((job) => {
+							return (
+								// console.clear(),
+								// console.log(job),
+								<div key={job._id} className="job-container">
+									<div className="job-title">
+										<h3>{job.title}</h3>
+										<p>{job.salary}</p>
+									</div>
+									{/* Quitar los comentarios luego */}
+									{/* <div className="job-date">
 								<p>{Date(job.creationDate)}</p>
 							</div>
 							<div className="job-description">
@@ -215,12 +219,14 @@ export default function Jobs() {
 							{job.category.map((category,key) => {
 								return <p key={key}>{category}</p>;
 							})} */}
-							<button onClick={() => viewJob(job._id)} className="btn">
-								<span>Ver</span>
-							</button>
-						</div>
-					);
-				})}
+									<button onClick={() => viewJob(job._id)} className="btn">
+										<span>Ver</span>
+									</button>
+								</div>
+							);
+						})}
+					</div>
+				</div>
 			</div>
 		</>
 	);

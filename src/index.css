@@ -323,6 +323,13 @@ select {
 	text-transform: capitalize;
 }
 
+/* Jobs */
+
+.jobs-grid-container{
+	display: flex;
+	flex-direction: column;
+}
+
 /* Categories checkboxes */
 
 .categories-checkboxes {
@@ -502,11 +509,11 @@ nav {
 
 /* Create */
 
-.create-container .inp{
+.create-container .inp {
 	margin-bottom: 1rem;
 }
 
-.title-categories{
+.title-categories {
 	margin-bottom: 1rem;
 }
 
@@ -635,6 +642,7 @@ nav {
 }
 
 .title-find {
+	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
 
@@ -691,7 +699,6 @@ nav {
 	flex-direction: column;
 }
 
-
 /* All Jobs */
 
 .job-container {
@@ -700,7 +707,7 @@ nav {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-top: 5rem;
+	margin-bottom: 3rem;
 	background-color: var(--dark-3);
 	border-radius: 0.5rem;
 	padding: 2rem 1rem 1rem 1rem;
@@ -870,23 +877,22 @@ nav {
 
 	.blue-tag {
 		margin: 0;
-		
 	}
 
-	.navlinks .links svg{
+	.navlinks .links svg {
 		display: none;
 	}
 
-	.navlinks .blue-tag{
+	.navlinks .blue-tag {
 		margin-left: 3rem;
 		margin-right: 3rem;
 	}
 
-	.navlinks .btn-logout{
+	.navlinks .btn-logout {
 		min-width: fit-content;
 	}
 
-	.navlinks .btn-logout span{
+	.navlinks .btn-logout span {
 		min-width: fit-content;
 		padding: 0.7rem 3rem;
 	}
@@ -921,5 +927,19 @@ nav {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	/* Jobs */
+
+	.jobs-grid-container {
+		width: 100%;
+		display: grid;
+		justify-content: space-between;
+		row-gap: 3rem;
+		grid-template-columns: 30% 65%;
+	}
+
+	.jobs-grid-container .item-container:first-of-type {
+		grid-column: span 2;
 	}
 }
