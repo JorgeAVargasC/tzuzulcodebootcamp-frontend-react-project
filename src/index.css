@@ -578,7 +578,16 @@ nav {
     border-radius: 40px;
 }
 
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+.images{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    height: auto;
+}
+
+.container2 {
+    margin-top: 8rem;
     width: 100%;
     padding-right: var(--bs-gutter-x,10px);
     padding-left: var(--bs-gutter-x,10px);
