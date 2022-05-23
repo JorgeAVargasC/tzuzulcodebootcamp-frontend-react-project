@@ -5,9 +5,7 @@ import { authContext } from "../context/AuthContext";
 import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logo from "../assets/svg/logo.svg";
-import swal from "sweetalert";
-
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 export default function Login() {
 	const { setAuth } = useContext(authContext);
@@ -24,27 +22,27 @@ export default function Login() {
 			email: emailRef.current.value,
 			password: passwordRef.current.value,
 		})
-		.then(({ data }) => {
-			const { token, user } = data;
-			localStorage.setItem("token", token);
-			setAuth({
-				id: user.id,
-				name: user.name,
-				role: user.role,
-				email: user.email,
-				logged: true,
-			});
-			navigate("/", { replace: true });
-			Swal.fire({
-				icon: "success",
-				title: "Login Success",
-				text: "Welcome back!",
-			});
+			.then(({ data }) => {
+				const { token, user } = data;
+				localStorage.setItem("token", token);
+				setAuth({
+					id: user.id,
+					name: user.name,
+					role: user.role,
+					email: user.email,
+					logged: true,
+				});
+				navigate("/", { replace: true });
+				Swal.fire({
+					icon: "success",
+					title: "Login Success",
+					text: "Welcome back!",
+				});
 			})
-		
-		.catch((err) => {
-			console.log(err);
-		});
+
+			.catch((err) => {
+				console.log(err);
+			});
 	}
 
 	return (
