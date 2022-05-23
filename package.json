@@ -14,7 +14,11 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
     "sweetalert2": "^11.4.15",
+=======
+    "sweetalert": "^2.1.2",
+>>>>>>> 7efb7494dd61e7c112580ef5969fbbf4bd7d19ef
     "web-vitals": "^2.1.4"
   },
   "scripts": {
