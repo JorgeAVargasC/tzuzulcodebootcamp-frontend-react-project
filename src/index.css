@@ -574,13 +574,12 @@ nav {
     padding-top: 2rem;
     padding-bottom: 2rem;
     position: relative;
+    width: 90%;
 }
 
-.section-title {
-    font-size: 30px;
-    line-height: 1.500;
+.section-title p {
+    font-size: medium;
     text-align: justify;
-    text-justify: inter-word;
 }
 
 .process-menu a{
@@ -589,19 +588,58 @@ nav {
     letter-spacing: normal;
 }
 
-.parrafo h3 {
-    font-weight: bold;
+.d-flex{
+    display: flex!important;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.home-active-link {
+    background-color: #ffffff20;
+    border-radius: 1.5rem;
+    color: #f2f2f4;
+}
+
+.process-menu {
+    margin-top: 2rem;
 }
 
 .number{
-    color: #151625;
-    background-color:#b3cbff;
+    color: var(--blue-1);
+    background-color: #3568d420;
     height: 35px;
     width: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 40px;
+    margin-right: 2rem;
+}
+
+.section-title {
+    font-size: 20px;
+    line-height: 1.500;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.flex-shrink-0{
+    flex-shrink: 0!important;
+}
+
+.parrafo h3 {
+    text-align: left;
+    font-weight: 500;
+}
+
+.parrafo p {
+	color: var(--gray);
+    text-align: left;
+    text-align: justify;
+    font-size: small;
+    margin-bottom: 1rem;
 }
 
 .images{
@@ -613,12 +651,14 @@ nav {
 }
 
 .container2 {
-    margin-top: 8rem;
-    width: 100%;
+    margin-top: 10rem;
+    width: 90%;
     padding-right: var(--bs-gutter-x,10px);
     padding-left: var(--bs-gutter-x,10px);
     margin-right: auto;
     margin-left: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 /* All Jobs */
@@ -665,7 +705,7 @@ nav {
 
 /* Responsive Desktop */
 
-@media (min-width: 1269px) {
+@media (min-width: 1000px) {
 	.card {
 		width: 50%;
 		padding: 2.5rem 3rem;
@@ -685,19 +725,19 @@ nav {
 	}
 
 	h1 {
-		font-size: 8rem;
+		font-size: 5rem;
 	}
 
 	h2 {
-		font-size: 6rem;
+		font-size: 3rem;
 	}
 
 	h3 {
-		font-size: 3.5rem;
+		font-size: 2rem;
 	}
 
 	h4 {
-		font-size: 2.5rem;
+		font-size: 1.5rem;
 	}
 
 	a {
@@ -705,7 +745,7 @@ nav {
 	}
 
 	p {
-		font-size: 2rem;
+		font-size: 1rem;
 	}
 
 	/* Navbar */
@@ -739,4 +779,23 @@ nav {
 	.navlinks-mobile {
 		display: none;
 	}
+
+    .container2{
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+    }
+
+    .tab-content{
+        padding: 4rem;
+    }
+
+    .col-lg-6 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
