@@ -20,11 +20,30 @@ export default function Create() {
 	const salaryRef = useRef();
 	const descriptionRef = useRef();
 
+	var categTemp = [];
+	var countryTemp = [];
+
+	const removeAccents = (str) => {
+		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	};
+
 	const alljobs = () => {
 		const token = localStorage.getItem("token");
 		getWithToken("/api/jobs", { token })
 			.then(({ data }) => {
 				setJobs(data);
+
+				data.map((job) => {
+					job.category.map((category) => {
+						var catWithOutSpaces = category.trim();
+						if (!categTemp.includes(catWithOutSpaces)) {
+							categTemp.push(catWithOutSpaces);
+						}
+					});
+				});
+
+				setCategories(categTemp.sort());
+
 			})
 			.catch((err) => {
 				console.log(err);
@@ -35,14 +54,7 @@ export default function Create() {
 		alljobs();
 	}, []);
 
-	jobs.map((job) => {
-		job.category.map((category) => {
-			var catWithOutSpaces = category.trim();
-			if (!categories.includes(catWithOutSpaces)) {
-				setCategories([...categories, catWithOutSpaces].sort());
-			}
-		});
-	});
+	
 
 	const addCategory = (category) => {
 		if (!selectedCategory.includes(category)) {

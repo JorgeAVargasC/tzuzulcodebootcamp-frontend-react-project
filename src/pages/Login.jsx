@@ -5,8 +5,6 @@ import { authContext } from "../context/AuthContext";
 import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logo from "../assets/svg/logo.svg";
-import swal from "sweetalert";
-
 import Swal from "sweetalert2";
 
 export default function Login() {
