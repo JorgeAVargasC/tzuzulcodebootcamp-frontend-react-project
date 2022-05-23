@@ -873,6 +873,11 @@ nav {
 		min-width: fit-content;
 	}
 
+	.navlinks .btn-logout span{
+		min-width: fit-content;
+		padding: 0.7rem 3rem;
+	}
+
 	.navlinks .links {
 		margin-right: 3rem;
 		min-width: fit-content;

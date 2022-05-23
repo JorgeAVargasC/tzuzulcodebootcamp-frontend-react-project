@@ -58,7 +58,7 @@ export default function Navbar() {
 				{/* Desktop Navigation */}
 				<nav className="navlinks">
 					<NavLinks />
-					{auth.logged && <p className="blue-tag">{auth.name}</p>}
+					{auth.logged && <p className="blue-tag">Hi! {auth.name}</p>}
 					{auth.logged && <LogOut />}
 				</nav>
 			</div>

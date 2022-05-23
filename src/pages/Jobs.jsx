@@ -4,20 +4,52 @@ import Navbar from "../components/Navbar";
 
 export default function Jobs() {
 	const [jobs, setJobs] = useState([]);
-	const [oneJob, setOneJob] = useState()
+	const [oneJob, setOneJob] = useState();
 	const [modalJob, setModalJob] = useState(false);
 	const [categories, setCategories] = useState([]);
 	const [countries, setCountries] = useState([]);
 
 	const [selectedCategory, setSelectedCategory] = useState([]);
-	
+
 	const selectedCountryRef = useRef();
+
+	// Cateogories
+	var categTemp = [];
+
+	// Country
+	var countryTemp = [];
+
+	// Countries
+	const removeAccents = (str) => {
+		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	};
 
 	const alljobs = () => {
 		const token = localStorage.getItem("token");
 		getWithToken("/api/jobs", { token })
 			.then(({ data }) => {
+
 				setJobs(data);
+
+				data.map((job) => {
+					job.category.map((category) => {
+						var catWithOutSpaces = category.trim();
+						if (!categTemp.includes(catWithOutSpaces)) {
+							categTemp.push(catWithOutSpaces);
+						}
+					});
+				});
+
+				setCategories(categTemp.sort());
+
+				data.map((job) => {
+					var normCountry = removeAccents(job.location.country);
+					if (!countryTemp.includes(normCountry)) {
+						countryTemp.push(normCountry);
+					}
+				});
+
+				setCountries(countryTemp.sort());
 			})
 			.catch((err) => {
 				console.log(err);
@@ -27,46 +59,6 @@ export default function Jobs() {
 	useEffect(() => {
 		alljobs();
 	}, []);
-
-
-	// Countries
-
-	const removeAccents = (str) => {
-		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-	} 
-
-	var countryTemp = [];
-
-	jobs.map((job) => {
-		var normCountry = removeAccents(job.location.country);
-		if(!countryTemp.includes(normCountry)) {
-			countryTemp.push(normCountry);
-		}
-	});
-
-	useEffect(() => {
-		setCountries(countryTemp.sort());
-	},[]);
-	
-
-	// Cateogories
-
-	var categTemp = [];
-
-	jobs.map((job) => {
-		job.category.map((category) => {
-			var catWithOutSpaces = category.trim();
-			if (!categTemp.includes(catWithOutSpaces)) {
-				categTemp.push(catWithOutSpaces);
-			}
-		});
-	});
-
-	useEffect(() => {
-		setCategories(categTemp.sort());
-	}, []);
-
-	
 
 	
 
@@ -97,76 +89,80 @@ export default function Jobs() {
 	const byCountry = () => {
 		if (selectedCountryRef.current.value !== "all") {
 			postWithToken("/api/jobs/location", {
-				"country": selectedCountryRef.current.value,
+				country: selectedCountryRef.current.value,
 			})
+				.then(({ data }) => {
+					data.message ? alert(data.message) : setJobs(data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		} else {
+			alljobs();
+		}
+	};
+
+	const viewJob = (id) => {
+		const token = localStorage.getItem("token");
+		getWithToken("/api/jobs/" + id, { token })
 			.then(({ data }) => {
-				data.message ? alert(data.message) : setJobs(data);
+				setOneJob(data);
+				setModalJob(true);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
-		}	else{
-			alljobs();
-		}	
-	}
-
-	const viewJob = (id) =>{
-		const token = localStorage.getItem("token");
-		getWithToken("/api/jobs/" + id, { token })
-		.then(({ data }) => {
-			setOneJob(data);
-			setModalJob(true);
-		})
-		.catch((err) => {
-			console.log(err);
-		})
-	}
+	};
 
 	const applyJob = (id) => {
 		const token = localStorage.getItem("token");
 		putWithToken("/api/jobs/apply/" + id, { token })
-		.then(({ data }) => {
-			console.log(data);
-			data.message ? alert(data.message) : console.log(data);			
-		})
-		.catch((err) => {
-			console.log(err);
-		})
-	}
+			.then(({ data }) => {
+				console.log(data);
+				data.message ? alert(data.message) : console.log(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 
 	const unApplyJob = (id) => {
 		const token = localStorage.getItem("token");
 		putWithToken("/api/jobs/unapply/" + id, { token })
-		.then(({ data }) => {
-			console.log(data);
-			data.message ? alert(data.message) : console.log(data);			
-		})
-		.catch((err) => {
-			console.log(err);
-		})
-	}
+			.then(({ data }) => {
+				console.log(data);
+				data.message ? alert(data.message) : console.log(data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 
 	return (
 		<>
 			<Navbar />
 
-			{
-				modalJob && 
+			{modalJob && (
 				<div className="modal">
 					<h2>{oneJob.title}</h2>
-					<button className="btn" onClick={() => setModalJob(false)}><span>Close</span></button>
-					<button className="btn" onClick={() => applyJob(oneJob._id)}><span>Apply</span></button>
-					<button className="btn" onClick={() => unApplyJob(oneJob._id)}><span>Unapply</span></button>
-				</div> 
-			}
-			
+					<button className="btn" onClick={() => setModalJob(false)}>
+						<span>Close</span>
+					</button>
+					<button className="btn" onClick={() => applyJob(oneJob._id)}>
+						<span>Apply</span>
+					</button>
+					<button className="btn" onClick={() => unApplyJob(oneJob._id)}>
+						<span>Unapply</span>
+					</button>
+				</div>
+			)}
+
 			<div className="container">
-				
 				<h4 className="title-find">Find your job</h4>
 				<input className="inp find-job" type="text" placeholder="Job" />
 				<button className="btn" onClick={() => byCategory()} type="button">
 					<span>Find!</span>
-				</button>				
+				</button>
 
 				<h4 className="title-country">Country</h4>
 				<select className="inp select-country" ref={selectedCountryRef}>
@@ -175,13 +171,13 @@ export default function Jobs() {
 						return <option value={country}>{country}</option>;
 					})}
 				</select>
-				<button className="btn" onClick={() => byCountry()}><span>Search Country</span></button>
+				<button className="btn" onClick={() => byCountry()}>
+					<span>Search Country</span>
+				</button>
 
 				<h4 className="title-categories">Categories</h4>
 				<div className="categories-checkboxes">
-					
-					{
-					categories.map((category, key) => {
+					{categories.map((category, key) => {
 						return (
 							<div className="form-group">
 								<input
@@ -194,8 +190,7 @@ export default function Jobs() {
 								<label className="">{category}</label>
 							</div>
 						);
-					})
-					}
+					})}
 				</div>
 
 				{jobs.map((job) => {
