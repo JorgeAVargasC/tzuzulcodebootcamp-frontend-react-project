@@ -14,20 +14,20 @@ function App() {
 
 	const context = useContext(authContext);
 
-	useEffect(() => {
-		postWithToken('/api/auth/validate')
-		.then(({data})=>{
-			data.failed?
-			console.log(data) :
-			context.setAuth({
-				id:data.user.id,
-				name:data.user.name,
-				email:data.user.email,
-				role:data.user.role,
-				logged:true
-			})
-		})	
-	}, [])
+	// useEffect(() => {
+	// 	postWithToken('/api/auth/validate')
+	// 	.then(({data})=>{
+	// 		data.failed?
+	// 		console.log(data) :
+	// 		context.setAuth({
+	// 			id:data.user.id,
+	// 			name:data.user.name,
+	// 			email:data.user.email,
+	// 			role:data.user.role,
+	// 			logged:true
+	// 		})
+	// 	})	
+	// }, [])
 
 	return (
 		<div className="App">
