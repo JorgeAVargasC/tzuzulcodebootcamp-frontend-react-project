@@ -36,11 +36,7 @@ export default function Login() {
 					logged: true,
 				});
 				navigate("/", { replace: true });
-				MySwal.fire({
-					icon: "success",
-					title: "Login Success",
-					text: "Welcome back!",
-				});
+				
 			})
 
 			.catch((err) => {

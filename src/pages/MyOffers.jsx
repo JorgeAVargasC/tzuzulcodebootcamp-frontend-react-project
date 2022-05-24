@@ -41,20 +41,62 @@ export default function MyOffers() {
 			<Navbar />
 
 			{modalJob && (
-				<div className="modal">
-					<div className="modal-info">
-						<h2>{oneJob.title}</h2>
-						<button className="btn" onClick={() => setModalJob(false)}>
-							<span>Close</span>
-						</button>
-					</div>					
+				<div className="modal ">
+					<div className="modal-info animate__animated animate__bounceIn">
+						<div className="job-first-section">
+							<div className="job-title">
+								<h3>{oneJob.title}</h3>
+							</div>
+							<div className="job-location">
+								<IoLocation />
+								<p>{`${oneJob.location.country}, ${oneJob.location.province}${
+									oneJob.location.city ? ", " + oneJob.location.city : ""
+								}`}</p>
+							</div>
+
+							<div className="job-salary">
+								<p className="symbol">$</p>
+								<p>{`${oneJob.salary}`}</p>
+							</div>
+
+							<div className="job-applicants">
+								<IoPerson />
+								<p>{oneJob.applicants.length}</p>
+							</div>
+						</div>
+
+						<div className="job-categories">
+							{oneJob.category.map((category) => {
+								return (
+									<p
+										className={`tags tag-${category.replace(/ /g, "")}`}
+										key={category}
+									>
+										{category}
+									</p>
+								);
+							})}
+						</div>
+
+						<div className="job-description">
+							<p>{oneJob.description}</p>
+						</div>
+
+						<div className="job-buttons">
+							<button className="btn-secondary" onClick={() => setModalJob(false)}>
+								<span>Close</span>
+							</button>
+						</div>
+					</div>
 				</div>
 			)}
 
 			<div className="container">
 				<h2 className="title-categories">My Offers</h2>
 
-				{myOffers.map((job) => {
+				{
+				myOffers.length === 0 ? <div className="loader"><div class="lds-dual-ring"></div></div> : 
+				myOffers.map((job) => {
 					return (
 						<div key={job._id} className="job-container">
 							<div className="job-first-section">

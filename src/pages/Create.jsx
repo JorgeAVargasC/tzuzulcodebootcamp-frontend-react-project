@@ -132,7 +132,9 @@ export default function Create() {
 					</button>
 
 					<div className="categories-checkboxes">
-						{categories.map((category, key) => {
+						{
+						categories.length === 0 ? <div className="loader"><div class="lds-dual-ring"></div></div> :
+						categories.map((category, key) => {
 							return (
 								<div key={key} className="form-group">
 									<input
