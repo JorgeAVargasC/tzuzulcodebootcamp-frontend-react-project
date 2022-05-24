@@ -9,7 +9,7 @@ export default function Create() {
 
 	const navigate = useNavigate();
 
-	const [jobs, setJobs] = useState([]);
+	const [setJobs] = useState([]);
 	const [categories, setCategories] = useState([]);
 	const [selectedCategory, setSelectedCategory] = useState([]);
 
@@ -23,11 +23,10 @@ export default function Create() {
 	const descriptionRef = useRef();
 
 	var categTemp = [];
-	var countryTemp = [];
 
-	const removeAccents = (str) => {
-		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-	};
+	// const removeAccents = (str) => {
+	// 	return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	// };
 
 	const alljobs = () => {
 		const token = localStorage.getItem("token");

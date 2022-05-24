@@ -1,6 +1,5 @@
-import { useContext, useEffect } from 'react';
+import { useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {postWithToken} from './api';
 import { authContext } from './context/AuthContext';
 import Create from './pages/Create';
 import Home from './pages/Home';
@@ -11,8 +10,6 @@ import MyOffers from './pages/MyOffers';
 import SignUp from './pages/SignUp';
 
 function App() {
-
-	const context = useContext(authContext);
 
 	// useEffect(() => {
 	// 	postWithToken('/api/auth/validate')
