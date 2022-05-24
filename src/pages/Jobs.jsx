@@ -23,6 +23,8 @@ export default function Jobs() {
 
 	const selectedCountryRef = useRef();
 
+	const searchRef = useRef();
+
 	// Cateogories
 	var categTemp = [];
 
@@ -161,6 +163,22 @@ export default function Jobs() {
 			});
 	};
 
+	const generalSearch = () => {
+		var jobsFilter = [];
+
+		jobs.filter((job) => {
+			if(searchRef.current.value !== ""){				
+				if(job.title.toLowerCase().includes(searchRef.current.value.toLowerCase())){
+					jobsFilter.push(job);
+				}
+			}else{
+				alljobs();
+			}
+		})
+
+		setJobs(jobsFilter);
+	}
+
 	return (
 		<>
 			<Navbar />
@@ -224,7 +242,7 @@ export default function Jobs() {
 					<div className="item-container">
 						<h4 className="title-find">Find your job</h4>
 						<div className="search-job">
-							<input className="inp find-job" type="text" placeholder="Job" />
+							<input ref={searchRef} onChange={() => generalSearch()} className="inp find-job" type="text" placeholder="React Junior Developer..." />
 							<button className="btn" onClick={() => byCategory()} type="button">
 								<span>Find!</span>
 							</button>
