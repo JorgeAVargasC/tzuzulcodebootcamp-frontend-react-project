@@ -22,6 +22,8 @@ function App() {
 			context.setAuth({
 				id:data.user.id,
 				name:data.user.name,
+				email:data.user.email,
+				role:data.user.role,
 				logged:true
 			})
 		})	

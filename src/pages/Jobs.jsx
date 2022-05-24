@@ -85,7 +85,12 @@ export default function Jobs() {
 				category: selectedCategory,
 			})
 				.then(({ data }) => {
-					data.message ? alert(data.message) : setJobs(data);
+					data.message ? Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+						footer: data.message,
+					}) : setJobs(data);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -101,7 +106,12 @@ export default function Jobs() {
 				country: selectedCountryRef.current.value,
 			})
 				.then(({ data }) => {
-					data.message ? alert(data.message) : setJobs(data);
+					data.message ? Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+						footer: data.message,
+					}) : setJobs(data);
 				})
 				.catch((err) => {
 					console.log(err);
@@ -156,7 +166,12 @@ export default function Jobs() {
 		putWithToken("/api/jobs/unapply/" + id, { token })
 			.then(({ data }) => {
 				console.log(data);
-				data.message ? alert(data.message) : console.log(data);
+				data.message ? Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+					footer: data.message,
+				}) : console.log(data);
 			})
 			.catch((err) => {
 				console.log(err);
