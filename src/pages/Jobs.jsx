@@ -3,8 +3,16 @@ import { getWithToken, postWithToken, putWithToken } from "../api";
 import Navbar from "../components/Navbar";
 import { IoLocation, IoPerson } from "react-icons/io5";
 import "animate.css"
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useNavigate } from "react-router-dom";
 
 export default function Jobs() {
+
+	const MySwal = withReactContent(Swal);
+
+	const navigate = useNavigate();
+
 	const [jobs, setJobs] = useState([]);
 	const [oneJob, setOneJob] = useState();
 	const [modalJob, setModalJob] = useState(false);
@@ -118,7 +126,23 @@ export default function Jobs() {
 		putWithToken("/api/jobs/apply/" + id, { token })
 			.then(({ data }) => {
 				console.log(data);
-				data.message ? alert(data.message) : console.log(data);
+				if(data.message){
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+						footer: data.message,
+					})
+				}else{
+					Swal.fire({
+						icon: 'success',
+						title: 'Correct!',
+						text: 'You have correctly applied to the job',
+						footer: data.message,
+					})
+					navigate("/my-applications");
+				}
+				
 			})
 			.catch((err) => {
 				console.log(err);
