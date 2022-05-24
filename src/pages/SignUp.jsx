@@ -5,9 +5,13 @@ import { authContext } from "../context/AuthContext";
 import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logo from "../assets/svg/logo.svg";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function SignUp() {
 	const { setAuth } = useContext(authContext);
+
+	const MySwal = withReactContent(Swal);
 
 	const navigate = useNavigate();
 
@@ -53,6 +57,12 @@ export default function SignUp() {
 								role: data.user.role,
 								logged: true,
 						  });
+						  MySwal.fire({
+							icon: "success",
+							title: "Correct!",
+							text: "You have correctly sign in",
+						});
+						  
 				})
 				.catch((err) => console.log(err));
 		}

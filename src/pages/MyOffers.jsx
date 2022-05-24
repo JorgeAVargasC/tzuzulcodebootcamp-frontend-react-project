@@ -95,7 +95,7 @@ export default function MyOffers() {
 				<h2 className="title-categories">My Offers</h2>
 
 				{
-				myOffers.length === 0 ? <div className="loader"><div class="lds-dual-ring"></div></div> : 
+				myOffers.length === 0 ? <h4>No offers yet</h4> : 
 				myOffers.map((job) => {
 					return (
 						<div key={job._id} className="job-container">

@@ -26,21 +26,38 @@ export default function Login() {
 			password: passwordRef.current.value,
 		})
 			.then(({ data }) => {
-				const { token, user } = data;
-				localStorage.setItem("token", token);
-				setAuth({
-					id: user.id,
-					name: user.name,
-					role: user.role,
-					email: user.email,
-					logged: true,
-				});
-				navigate("/", { replace: true });
-				
+				if (data.message) {
+					MySwal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: data.message,
+					});					
+				} else {
+					MySwal.fire({
+						icon: "success",
+						title: "Correct!",
+						text: "You have correctly sign in",
+					});
+
+					const { token, user } = data;
+					localStorage.setItem("token", token);
+					setAuth({
+						id: user.id,
+						name: user.name,
+						role: user.role,
+						email: user.email,
+						logged: true,
+					});
+					navigate("/", { replace: true });
+				}
 			})
 
 			.catch((err) => {
-				console.log(err);
+				MySwal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: err.message,
+				});
 			});
 	};
 

@@ -157,7 +157,12 @@ export default function Jobs() {
 				
 			})
 			.catch((err) => {
-				console.log(err);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+					footer: err.message,
+				})
 			});
 	};
 
