@@ -243,7 +243,7 @@ export default function Jobs() {
 						<h4 className="title-find">Find your job</h4>
 						<div className="search-job">
 							<input ref={searchRef} onChange={() => generalSearch()} className="inp find-job" type="text" placeholder="React Junior Developer..." />
-							<button className="btn" onClick={() => byCategory()} type="button">
+							<button className="btn" onClick={() => generalSearch()} type="button">
 								<span>Find!</span>
 							</button>
 						</div>
